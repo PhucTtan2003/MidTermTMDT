@@ -1,0 +1,147 @@
+﻿@model IEnumerable<CartItem>
+
+@{
+    ViewData["Title"] = "Shopping Cart";
+}
+
+<h1 class="text-center my-4">Giỏ hàng của bạn</h1>
+
+<div class="cart-table table-responsive">
+    <table class="table table-bordered table-striped table-hover">
+        <thead class="table-dark text-center">
+            <tr>
+                <th class="pro-thumbnail">Hình ảnh</th>
+                <th class="pro-title">Sản phẩm</th>
+                <th class="pro-price">Đơn giá</th>
+                <th class="pro-quantity">Số lượng</th>
+                <th class="pro-subtotal">Thành tiền</th>
+                <th class="pro-remove">Thao tác</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr class="align-middle text-center" data-id="@item.MaHh">
+                    <td>
+                        <img src="~/Hinh/HangHoa/@item.Hinh" alt="@item.TenHh" class="img-fluid rounded" style="max-height: 100px;" />
+                    </td>
+                    <td>@item.TenHh</td>
+                    <td class="price">@item.DonGia.ToString("C", System.Globalization.CultureInfo.CreateSpecificCulture("en-US"))</td>
+                    <td>
+                        <input type="number" value="@item.SoLuong" min="1" class="form-control text-center w-50 mx-auto quantity-input" />
+                    </td>
+                    <td class="subtotal">@((item.DonGia * item.SoLuong).ToString("C", System.Globalization.CultureInfo.CreateSpecificCulture("en-US")))</td>
+                    <td>
+                        <button class="btn btn-danger btn-sm btn-remove" data-id="@item.MaHh">
+                            <i class="fa fa-trash"></i> Xóa
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+        <tfoot class="table-light">
+            <tr>
+                <td colspan="4" class="text-end fw-bold">Tổng cộng:</td>
+                <td class="fw-bold total-price">@Model.Sum(item => item.DonGia * item.SoLuong).ToString("C", System.Globalization.CultureInfo.CreateSpecificCulture("en-US"))</td>
+                <td></td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+
+<div class="text-end mt-4">
+    <a href="/Checkout" class="btn btn-primary">Thanh toán</a>
+    <a href="/" class="btn btn-secondary">Tiếp tục mua sắm</a>
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const quantityInputs = document.querySelectorAll('.quantity-input');
+            const removeButtons = document.querySelectorAll('.btn-remove');
+
+            // Hàm cập nhật tổng tiền
+            const updateTotalPrice = () => {
+                let total = 0;
+                document.querySelectorAll('tbody tr').forEach(row => {
+                    const subtotal = parseFloat(row.querySelector('.subtotal').textContent.replace(/[^0-9.-]+/g, "")) || 0;
+                    total += subtotal;
+                });
+                document.querySelector('.total-price').textContent = `$${total.toFixed(2)}`;
+            };
+
+            // Cập nhật số lượng sản phẩm
+            quantityInputs.forEach(input => {
+                input.addEventListener('change', function () {
+                    const row = this.closest('tr');
+                    const productId = row.getAttribute('data-id');
+                    const newQuantity = parseInt(this.value, 10);
+
+                    if (isNaN(newQuantity) || newQuantity <= 0) {
+                        alert("Số lượng phải lớn hơn 0!");
+                        this.value = 1; // Reset về 1 nếu không hợp lệ
+                        return;
+                    }
+
+                    // Cập nhật subtotal ngay lập tức (client-side)
+                    const unitPrice = parseFloat(row.querySelector('.price').textContent.replace(/[^0-9.-]+/g, ""));
+                    const newSubtotal = (unitPrice * newQuantity).toFixed(2);
+                    row.querySelector('.subtotal').textContent = `$${newSubtotal}`;
+
+                    // Gửi AJAX cập nhật số lượng
+                    fetch(`/Cart/UpdateCart`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ id: productId, qty: newQuantity })
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.success) {
+                                updateTotalPrice(); // Cập nhật tổng tiền
+                                console.log('Cập nhật thành công:', data);
+                            } else {
+                                alert(data.message || 'Có lỗi xảy ra khi cập nhật số lượng.');
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Lỗi:', error);
+                            alert('Có lỗi xảy ra khi xử lý yêu cầu.');
+                        });
+                });
+            });
+
+            // Xóa sản phẩm
+            removeButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    const productId = this.getAttribute('data-id');
+                    const row = this.closest('tr');
+
+                    if (confirm("Bạn có chắc muốn xóa sản phẩm này?")) {
+                        fetch(`/Cart/RemoveCart/${productId}`, {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            }
+                        })
+                            .then(response => response.json())
+                            .then(data => {
+                                if (data.success) {
+                                    row.remove(); // Xóa hàng sản phẩm
+                                    updateTotalPrice(); // Cập nhật tổng tiền
+                                    alert(data.message);
+                                } else {
+                                    alert(data.message);
+                                }
+                            })
+                            .catch(error => {
+                                console.error('Lỗi:', error);
+                                alert("Có lỗi xảy ra khi xóa sản phẩm.");
+                            });
+                    }
+                });
+            });
+        });
+    </script>
+}
