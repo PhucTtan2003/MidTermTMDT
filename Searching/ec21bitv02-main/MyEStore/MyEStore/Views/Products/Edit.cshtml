@@ -1,0 +1,80 @@
+﻿@model MyEStore.Entities.HangHoa
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit Product</h1>
+
+<h4>HangHoa</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="MaHh" />
+            
+            <div class="form-group">
+                <label asp-for="TenHh" class="control-label"></label>
+                <input asp-for="TenHh" class="form-control" />
+                <span asp-validation-for="TenHh" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="TenAlias" class="control-label"></label>
+                <input asp-for="TenAlias" class="form-control" />
+                <span asp-validation-for="TenAlias" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="MoTaDonVi" class="control-label"></label>
+                <input asp-for="MoTaDonVi" class="form-control" />
+                <span asp-validation-for="MoTaDonVi" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="DonGia" class="control-label"></label>
+                <input asp-for="DonGia" type="number" step="0.01" class="form-control" />
+                <span asp-validation-for="DonGia" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Hinh" class="control-label"></label>
+                <input asp-for="Hinh" class="form-control" />
+                <span asp-validation-for="Hinh" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="NgaySx" class="control-label"></label>
+                <input asp-for="NgaySx" type="date" class="form-control" />
+                <span asp-validation-for="NgaySx" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="GiamGia" class="control-label"></label>
+                <input asp-for="GiamGia" type="number" step="0.01" class="form-control" />
+                <span asp-validation-for="GiamGia" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="SoLanXem" class="control-label"></label>
+                <input asp-for="SoLanXem" type="number" class="form-control" />
+                <span asp-validation-for="SoLanXem" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="MoTa" class="control-label"></label>
+                <textarea asp-for="MoTa" class="form-control"></textarea>
+                <span asp-validation-for="MoTa" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

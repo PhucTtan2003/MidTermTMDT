@@ -1,0 +1,15 @@
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace MyEStore.Models
+{
+    public class LoginVM
+    {
+        [MaxLength(20)]
+        [Key]
+        public string UserName { get; set; }
+
+        [DataType(DataType.Password)]
+        public string Password { get; set; }
+
+    }
+}
