@@ -1,0 +1,44 @@
+﻿@model IEnumerable<MyEStore.Models.HangHoaVM>
+
+@{
+    ViewData["Title"] = "Tìm kiếm sản phẩm";
+}
+
+<h1>Kết quả tìm kiếm</h1>
+
+@if (Model != null && Model.Any())
+{
+    <p>Hiển thị kết quả cho từ khóa: <strong>@ViewBag.KeyWord</strong></p>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Tên sản phẩm</th>
+                <th>Mô tả</th>
+                <th>Giá</th>
+                <th>Hình</th>
+                <th>Hành động</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.TenHh</td>
+                    <td>@item.MoTa</td>
+                    <td>@item.DonGia</td>
+                    <td>
+                        <img src="~/Hinh/HangHoa/@item.Hinh" alt="@item.TenHh" height="100" />
+                    </td>
+                    <td>
+                        <a asp-controller="Products" asp-action="Detail" asp-route-id="@item.MaHh" class="btn btn-info btn-sm">Xem chi tiết</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Không tìm thấy sản phẩm nào với từ khóa: <strong>@ViewBag.KeyWord</strong>.</p>
+}
