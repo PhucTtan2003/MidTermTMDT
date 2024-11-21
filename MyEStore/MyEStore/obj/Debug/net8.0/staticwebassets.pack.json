@@ -1213,6 +1213,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "D:\\Chiến lược thương mại điện tử\\ec21bitv02-main\\MyEStore\\MyEStore\\wwwroot\\font\\vniongdo.ttf",
+      "PackagePath": "staticwebassets\\font\\vniongdo.ttf"
+    },
+    {
       "Id": "D:\\Chiến lược thương mại điện tử\\ec21bitv02-main\\MyEStore\\MyEStore\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

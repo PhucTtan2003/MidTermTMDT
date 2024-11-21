@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "u7pyPDTLi4lI1VryRuTm5QNkT/THmajZZQfDkicDjaE=",
+  "Hash": "jIu3eSQY/k1Aze4IfgfhzHH9elA7aUZebkjxkzgVEk4=",
   "Source": "MyEStore",
   "BasePath": "_content/MyEStore",
   "Mode": "Default",
@@ -129,6 +129,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "D:\\Chiến lược thương mại điện tử\\ec21bitv02-main\\MyEStore\\MyEStore\\wwwroot\\font\\vniongdo.ttf",
+      "SourceId": "MyEStore",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Chiến lược thương mại điện tử\\ec21bitv02-main\\MyEStore\\MyEStore\\wwwroot\\",
+      "BasePath": "_content/MyEStore",
+      "RelativePath": "font/vniongdo.ttf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\font\\vniongdo.ttf"
     },
     {
       "Identity": "D:\\Chiến lược thương mại điện tử\\ec21bitv02-main\\MyEStore\\MyEStore\\wwwroot\\Hinh\\divider.gif",

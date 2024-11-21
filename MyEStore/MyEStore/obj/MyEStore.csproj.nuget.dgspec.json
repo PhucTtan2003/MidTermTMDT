@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Thinh Nguyen\\OneDrive\\Desktop\\Thương mại điện tử\\ec21bitv02-main\\MyEStore\\MyEStore\\MyEStore.csproj": {}
+    "C:\\Users\\Thinh Nguyen\\Documents\\Zalo Received Files\\ec21bitv02-main (2)\\ec21bitv02-main\\MyEStore\\MyEStore\\MyEStore.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Thinh Nguyen\\OneDrive\\Desktop\\Thương mại điện tử\\ec21bitv02-main\\MyEStore\\MyEStore\\MyEStore.csproj": {
+    "C:\\Users\\Thinh Nguyen\\Documents\\Zalo Received Files\\ec21bitv02-main (2)\\ec21bitv02-main\\MyEStore\\MyEStore\\MyEStore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Thinh Nguyen\\OneDrive\\Desktop\\Thương mại điện tử\\ec21bitv02-main\\MyEStore\\MyEStore\\MyEStore.csproj",
+        "projectUniqueName": "C:\\Users\\Thinh Nguyen\\Documents\\Zalo Received Files\\ec21bitv02-main (2)\\ec21bitv02-main\\MyEStore\\MyEStore\\MyEStore.csproj",
         "projectName": "MyEStore",
-        "projectPath": "C:\\Users\\Thinh Nguyen\\OneDrive\\Desktop\\Thương mại điện tử\\ec21bitv02-main\\MyEStore\\MyEStore\\MyEStore.csproj",
+        "projectPath": "C:\\Users\\Thinh Nguyen\\Documents\\Zalo Received Files\\ec21bitv02-main (2)\\ec21bitv02-main\\MyEStore\\MyEStore\\MyEStore.csproj",
         "packagesPath": "C:\\Users\\Thinh Nguyen\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Thinh Nguyen\\OneDrive\\Desktop\\Thương mại điện tử\\ec21bitv02-main\\MyEStore\\MyEStore\\obj\\",
+        "outputPath": "C:\\Users\\Thinh Nguyen\\Documents\\Zalo Received Files\\ec21bitv02-main (2)\\ec21bitv02-main\\MyEStore\\MyEStore\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Thinh Nguyen\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -54,10 +54,6 @@
               "target": "Package",
               "version": "[8.0.10, )"
             },
-            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[8.0.10, )"
-            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.0.10, )"
@@ -74,7 +70,7 @@
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-              "version": "[8.0.6, )"
+              "version": "[8.0.7, )"
             }
           },
           "imports": [
