@@ -1,0 +1,120 @@
+﻿﻿@{
+    ViewBag.Title = "Contact";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<style>
+    /* Card styles */
+    .card {
+        position: relative;
+        width: 300px;
+        height: 200px;
+        background-color: #f2f2f2;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        perspective: 1000px;
+        box-shadow: 0 0 0 5px #ffffff80;
+        transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .card svg {
+        width: 48px;
+        fill: #333;
+        transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
+    }
+
+    .card__content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        padding: 20px;
+        box-sizing: border-box;
+        background-color: #f2f2f2;
+        transform: rotateX(-90deg);
+        transform-origin: bottom;
+        transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .card:hover .card__content {
+        transform: rotateX(0deg);
+    }
+
+    .card__title {
+        margin: 0;
+        font-size: 24px;
+        color: #333;
+        font-weight: 700;
+    }
+
+    .card:hover iframe {
+        scale: 0;
+    }
+
+    .card__description {
+        margin: 10px 0 0;
+        font-size: 14px;
+        color: #777;
+        line-height: 1.4;
+    }
+
+    .card-container {
+        display: flex;
+        justify-content: space-between; /* Căn giữa các thẻ card */
+        gap: 20px; /* Khoảng cách giữa các thẻ card */
+    }
+</style>
+
+<address>
+    Levents - Modern Simplicity<br />
+    Redmond, WA 98052-6399<br />
+    <abbr title="Phone">P:028.3940.4208</abbr>
+</address>
+
+<div class="card-container">
+    <div class="card">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3097.874428990613!2d106.68772657377475!3d10.769023659332797!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f3d72735fb5%3A0x4871c1614e4108c6!2zMTM5RSDEkC4gTmd1eeG7hW4gVHLDo2ksIFBoxrDhu51uZyBQaOG6oW0gTmfFqSBMw6NvLCBRdeG6rW4gMSwgSOG7kyBDaMOtIE1pbmgsIFZp4buHdCBOYW0!5e1!3m2!1svi!2s!4v1731383973355!5m2!1svi!2s" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="card__content">
+            <p class="card__title">STORE 01</p>
+            <p class="card__description">139E Nguyễn Trãi, Phường Bến Thành, Quận 1, Thành phố Hồ Chí Minh</p>
+            <a href="customercare@levents.asia">Email for customer</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3097.3993587915897!2d106.67205817377551!3d10.81512235848136!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752939686532e3%3A0xa3396d3b9f461658!2zMTEyIMSQLiBC4bqhY2ggxJDhurFuZywgUGjGsOG7nW5nIDIsIFTDom4gQsOsbmgsIEjhu5MgQ2jDrSBNaW5oLCBWaeG7h3QgTmFt!5e1!3m2!1svi!2s!4v1731384122723!5m2!1svi!2s" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="card__content">
+            <p class="card__title">FLAGSHIP STORE</p>
+            <p class="card__description">112/23B Bạch Đằng, Phường 2, Tân Bình, Thành phố Hồ Chí Minh</p>
+            <p>Giờ làm việc: 09h00 đến 17h30 tất cả các ngày trong tuần</p>
+            <a href="hr-admin@levents.asia">Email for recruitment</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3097.7907065171116!2d106.66370237377498!3d10.777161859182755!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752edb1eda4491%3A0x5a2a886cc86eb3ee!2zODQyIMSQLiBTxrAgVuG6oW4gSOG6oW5oLCBQaMaw4budbmcgMTIsIFF14bqtbiAxMCwgSOG7kyBDaMOtIE1pbmgsIFZp4buHdCBOYW0!5e1!3m2!1svi!2s!4v1731384031776!5m2!1svi!2s" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="card__content">
+            <p class="card__title">STORE 02</p>
+            <p class="card__description">842 Sư Vạn Hạnh, phường 12, quận 10, Thành phố Hồ Chí Minh</p>
+            <a href="business@levents.asia">Email for business</a>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+

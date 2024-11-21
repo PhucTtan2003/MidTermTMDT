@@ -1,0 +1,85 @@
+﻿@model IEnumerable<MyEStore.Models.HangHoaVM>
+
+@{
+	ViewData["Title"] = "Index";
+}
+<style>
+	.hh-box {
+		width: 250px;
+		height: 300px;
+		border: 1px solid blue;
+		display: inline-block;
+		text-align: center;
+		position: relative;
+		margin: 5px;
+	}
+
+	.hh-box-img {
+		width: 80%;
+		height: 80%;
+	}
+
+	.hh-box-mua {
+		position: absolute;
+		right: 5px;
+		bottom: 5px;
+	}
+
+	.hh-box-gia {
+		position: absolute;
+		left: 5px;
+		bottom: 5px;
+		font-weight: bolder;
+		font-size: large;
+	}
+
+	.hh-box-edit {
+		position: absolute;
+		right: 5px;
+		top: 5px;
+	}
+
+	.hh-box {
+		width: 100%;
+		border: 1px solid blue;
+		text-align: center;
+		margin-bottom: 10px;
+	}
+
+	.search-box {
+		margin-top: 10px;
+	}
+</style>
+<div class="container">
+	<div class="row">
+		<!-- Cột chứa danh sách hàng hóa -->
+		<div class="col-md-9">
+			<div class="row">
+				@foreach (var hh in Model)
+				{
+					<div class="col-md-4">
+						<div class="hh-box">
+							<a asp-action="Detail" asp-route-id="@hh.MaHh">
+								<img src="~/Hinh/HangHoa/@hh.Hinh" alt="@hh.TenHh" class="hh-box-img" />
+							</a>
+							<a class="btn btn-primary hh-box-mua" asp-controller="Cart" asp-action="AddToCart" asp-route-id="@hh.MaHh">MUA</a>
+							<div class="hh-box-gia">@hh.DonGia $</div>
+							<!-- Nút Chỉnh Sửa -->
+							<a class="btn btn-secondary hh-box-edit" asp-action="Edit" asp-route-id="@hh.MaHh">Sửa</a>
+						</div>
+					</div>
+				}
+			</div>
+		</div>
+
+		<!-- Cột chứa thanh tìm kiếm -->
+		<div class="col-md-3">
+			<form asp-controller="Products" asp-action="Search" method="post">
+				<div class="search-box">
+					<input type="text" class="form-control mb-2" placeholder="Search" name="Searchterm" />
+					<button class="btn btn-warning w-100" type="submit">Search</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

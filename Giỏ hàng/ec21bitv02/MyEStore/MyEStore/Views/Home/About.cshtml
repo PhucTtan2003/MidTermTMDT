@@ -1,0 +1,289 @@
+﻿@{
+    ViewData["Title"] = "About";
+}
+<section class="slick-slideshow">
+    <div class="slick-custom">
+        <div class="slick-bottom">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6 col-10 text-center">
+                        <img src="~/Hinh/About//sly-logo.png" class="img-fluid" alt="" style="max-width: 100%; height: auto;">
+                        <h1 class="slick-title"> ULTIMATE SALE </h1>
+
+                        <p class="lead text-white mt-lg-3 mb-lg-5 text-center"> NEW COLLECTION </p>
+
+                        <a asp-controller="Products" asp-action="Index">
+                            <button type="button" class="btn custom-btn btn-block btn-lg">
+                                Shop Now
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="slick-custom">
+        <img src="~/Hinh/About/Sly-icon.png" class="img-fluid" alt="">
+
+        <div class="slick-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-10">
+                        <h1 class="slick-title">About us</h1>
+
+                        <p class="lead text-white mt-lg-3 mb-lg-5">
+                            Introducing SYMPHONIA, your ultimate destination for all things
+                            chic, trendy, and utterly fabulous.
+                        </p>
+
+                        <a asp-action="About">
+                            <button type="button" class="btn custom-btn btn-block btn-lg">
+                                Our journey
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<section class="about section-padding">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-2 col-12 mt-auto mb-auto">
+                <ul class="nav nav-pills mb-5 mx-auto justify-content-center align-items-center" id="pills-tab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home"
+                                type="button" role="tab" aria-controls="pills-home" aria-selected="true">
+                            Introduction
+                        </button>
+                    </li>
+
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-youtube-tab" data-bs-toggle="pill" data-bs-target="#pills-youtube"
+                                type="button" role="tab" aria-controls="pills-youtube" aria-selected="true">
+                            Our Lifestyle
+                        </button>
+                    </li>
+
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-skill-tab" data-bs-toggle="pill" data-bs-target="#pills-skill"
+                                type="button" role="tab" aria-controls="pills-skill" aria-selected="false">
+                            The journey
+                        </button>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-lg-10 col-12">
+                <div class="tab-content mt-2" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+
+                        <div class="row">
+                            <div class="col-lg-7 col-12">
+                                <img src="~/Hinh/About/brand_01.png" class="img-fluid" alt="">
+                            </div>
+
+                            <div class="col-lg-5 col-12">
+                                <div class="d-flex flex-column h-100 ms-lg-4 mt-lg-0 mt-5">
+                                    <h4 class="mb-3">Good <span>Design</span> <br>Ideas for <span>your Fashion</span></h4>
+
+                                    <p>
+                                        SYMPHONIA Fashion comes with <a href="products.html"> Varieties choices of Products</a> specialized
+                                        just for your unique styles.
+                                    </p>
+
+                                    <p>
+                                        Since SYMPHONIA is created with the ideas of a lovely Symphony, you can feel free to shop at ours
+                                        however you want.
+                                    </p>  
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="pills-youtube" role="tabpanel" aria-labelledby="pills-youtube-tab">
+
+                        <div class="row">
+                            <div class="col-lg-7 col-12">
+                                <div class="ratio ratio-16x9">
+                                    <iframe src="https://www.youtube-nocookie.com/embed/n-LDp0rKI2k?controls=0"
+                                            title="YouTube video player" frameborder="0"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allowfullscreen></iframe>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-5 col-12">
+                                <div class="d-flex flex-column h-100 ms-lg-4 mt-lg-0 mt-5">
+                                    <h4 class="mb-3"> Stylizing with SYMPHONIA</h4>
+
+                                    <p>Are you ready to elevate your style game? It's time to make a statement with your wardrobe! </p>
+
+                                    <p> Let's redefine fashion, one fabulous ensemble at a time. </p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="pills-skill" role="tabpanel" aria-labelledby="pills-skill-tab">
+                        <div class="row">
+                            <div class="col-lg-7 col-12">
+                                <img src="~/Hinh/About/brand_02.png" class="img-fluid" alt="">
+                            </div>
+
+                            <div class="col-lg-5 col-12">
+                                <div class="d-flex flex-column h-100 ms-lg-4 mt-lg-0 mt-5">
+                                    <h4 class="mb-3">What can we help you?</h4>
+
+                                    <p>
+                                        Embrace your inner fashionista and join us at SYMPHONIA. Step into style and discover a world where
+                                        every outfit tells a story.
+                                    </p>
+
+                                    <div class="skill-thumb mt-3">
+
+                                        <strong>Branding</strong>
+                                        <span class="float-end">90%</span>
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="90"
+                                                 aria-valuemin="0" aria-valuemax="100" style="width: 90%;"></div>
+                                        </div>
+
+                                        <strong>Design & Strategy</strong>
+                                        <span class="float-end">70%</span>
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="70"
+                                                 aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div>
+                                        </div>
+
+                                        <strong>Online Platform</strong>
+                                        <span class="float-end">80%</span>
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="80"
+                                                 aria-valuemin="0" aria-valuemax="100" style="width: 80%;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="testimonial section-padding">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-9 mx-auto col-11">
+                <h2 class="text-center">Customer's love for <span>SYMPHONIA</span></h2>
+
+                <div class="slick-testimonial">
+                    <div class="slick-testimonial-caption">
+                        <p class="lead">
+                            "I cannot praise Symphonia enough! The selection of clothing and accessories is absolutely
+                            fabulous. Every time I visit, I find something unique and stylish that perfectly suits my taste. The
+                            customer service is exceptional too. Highly recommend!"
+                        </p>
+
+                        <div class="slick-testimonial-client d-flex align-items-center mt-4">
+                            <img src="~/images/people/senior-man-wearing-white-face-mask-covid-19-campaign-with-design-space.jpeg"
+                                 class="img-fluid custom-circle-image me-3" alt="">
+
+                            <span>George, K</span>
+                        </div>
+                    </div>
+
+                    <div class="slick-testimonial-caption">
+                        <p class="lead">
+                            "Symphonia has become my go-to destination for elegant and timeless pieces. From beautifully
+                            tailored dresses to chic accessories, their collection never disappoints. The quality of their garments is
+                            outstanding, and the staff is always friendly and helpful. I always leave feeling confident and stylish!"
+                        </p>
+
+                        <div class="slick-testimonial-client d-flex align-items-center mt-4">
+                            <img src="~/images/people/beautiful-woman-face-portrait-brown-background.jpeg"
+                                 class="img-fluid custom-circle-image me-3" alt="">
+
+                            <span>Sandar, M</span>
+                        </div>
+                    </div>
+
+                    <div class="slick-testimonial-caption">
+                        <p class="lead">
+                            "I stumbled upon Symphonia by chance, and I am so glad I did! What a hidden gem! The
+                            ambiance of the store is inviting, and the curated selection of clothing and accessories is top-notch. I
+                            love that they prioritize sustainability too. It's my new favorite place to shop for fashion-forward
+                            pieces."
+                        </p>
+
+                        <div class="slick-testimonial-client d-flex align-items-center mt-4">
+                            <img src="~/images/people/portrait-british-woman.jpeg" class="img-fluid custom-circle-image me-3" alt="">
+
+                            <span>Marie, Art Fashion Designer</span>
+                        </div>
+                    </div>
+
+                    <div class="slick-testimonial-caption">
+                        <p class="lead">
+                            "What sets Symphonia apart is their personalized shopping experience. The stylists are
+                            incredibly knowledgeable and take the time to understand your style preferences. They make helpful
+                            suggestions without being pushy, and I always leave feeling like I've found something special. Can't wait
+                            to come back!"
+                        </p>
+
+                        <div class="slick-testimonial-client d-flex align-items-center mt-4">
+                            <img src="~/images/people/woman-wearing-mask-face-closeup-covid-19-green-background.jpeg"
+                                 class="img-fluid custom-circle-image me-3" alt="">
+
+                            <span>Catherine, A</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Add custom CSS and JS for improved design -->
+<style>
+    .custom-btn {
+        background-color: #ff6f61; /* Example color */
+        border: none;
+        transition: background-color 0.3s;
+    }
+    .custom-btn:hover {
+        background-color: #ff3b30; /* Darker shade on hover */
+    }
+    .slick-title {
+        font-size: 2.5rem; /* Increased font size */
+        font-weight: bold;
+        color: #333; /* Darker color for better contrast */
+    }
+    .testimonial {
+        background-color: #f9f9f9; /* Light background for testimonials */
+        padding: 40px 0;
+    }
+</style>
+
+<script>
+    $(document).ready(function(){
+        $('.slick-testimonial').slick({
+            dots: true,
+            infinite: true,
+            speed: 500,
+            fade: true,
+            cssEase: 'linear'
+        });
+    });
+</script>
