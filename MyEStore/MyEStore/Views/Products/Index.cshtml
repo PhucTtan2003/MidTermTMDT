@@ -1,84 +1,86 @@
 ﻿@model IEnumerable<MyEStore.Models.HangHoaVM>
 
 @{
-	ViewData["Title"] = "Index";
+    ViewData["Title"] = "Index";
 }
 <style>
-	.hh-box {
-		width: 250px;
-		height: 300px;
-		border: 1px solid blue;
-		display: inline-block;
-		text-align: center;
-		position: relative;
-		margin: 5px;
-	}
+    .hh-box {
+        width: 250px;
+        height: 300px;
+        border: 1px solid blue;
+        display: inline-block;
+        text-align: center;
+        position: relative;
+        margin: 5px;
+    }
 
-	.hh-box-img {
-		width: 80%;
-		height: 80%;
-	}
+    .hh-box-img {
+        width: 80%;
+        height: 80%;
+    }
 
-	.hh-box-mua {
-		position: absolute;
-		right: 5px;
-		bottom: 5px;
-	}
+    .hh-box-mua {
+        position: absolute;
+        right: 5px;
+        bottom: 5px;
+    }
 
-	.hh-box-gia {
-		position: absolute;
-		left: 5px;
-		bottom: 5px;
-		font-weight: bolder;
-		font-size: large;
-	}
+    .hh-box-gia {
+        position: absolute;
+        left: 5px;
+        bottom: 5px;
+        font-weight: bolder;
+        font-size: large;
+    }
 
-	.hh-box-edit {
-		position: absolute;
-		right: 5px;
-		top: 5px;
-	}
-	
+    .hh-box-edit {
+        position: absolute;
+        right: 5px;
+        top: 5px;
+    }
 </style>
 
 <h1>Danh sách Hàng hóa</h1>
 <div class="container">
-	@foreach (var hh in Model)
-	{
-		<div class="hh-box">
-			<a asp-action="Detail" asp-route-id="@hh.MaHh">
-				<img src="~/Hinh/HangHoa/@hh.Hinh" alt="@hh.TenHh" class="hh-box-img" />
-			</a>
-			<a class="btn btn-primary hh-box-mua" asp-controller="Cart" asp-action="AddToCart" asp-route-id="@hh.MaHh">MUA</a>
-			<div class="hh-box-gia">@hh.DonGia $</div>
+    @foreach (var hh in Model)
+    {
+        <div class="hh-box">
+            <a asp-action="Detail" asp-route-id="@hh.MaHh">
+                <img src="~/Hinh/HangHoa/@hh.Hinh" alt="@hh.TenHh" class="hh-box-img" />
+            </a>
+            <a class="btn btn-primary hh-box-mua" asp-controller="Cart" asp-action="AddToCart" asp-route-id="@hh.MaHh">MUA</a>
 
-			<!-- Nút Chỉnh Sửa -->
-			<a class="btn btn-secondary hh-box-edit" asp-action="Edit" asp-route-id="@hh.MaHh">Sửa</a>
-		</div>
-	}
+            <div class="hh-box-gia">@hh.DonGia $</div>
+            <button class="btn btn-warning btn-add-to-cart" data-id="@hh.MaHh">
+                <i class="fa fa-cart-plus"></i> Thêm giỏ hàng
+            </button>
+        </div>
+    }
 </div>
+
 @* Hoàng thêm nè *@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-	<div class="container-fluid">
-		<a class="navbar-brand" href="/">MyEStore</a>
-		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarNav">
-			<ul class="navbar-nav me-auto">
-				<li class="nav-item"><a class="nav-link" href="/DongHo">Đồng hồ</a></li>
-				<li class="nav-item"><a class="nav-link" href="/Laptop">Laptop</a></li>
-				<li class="nav-item"><a class="nav-link" href="/DienThoai">Điện thoại</a></li>
-			</ul>
-			<!-- Thêm logo giỏ hàng -->
-			<div class="d-flex align-items-center">
-				<a href="/Cart/Index" class="btn btn-outline-primary position-relative">
-					<i class="fa fa-shopping-cart"></i> Giỏ hàng
-					<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="cart-count">
-						@ViewBag.CartCount
-					</span>
-				</a>
-			</div>
-		</div>
-	</div>
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">MyEStore</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item"><a class="nav-link" href="/DongHo">Đồng hồ</a></li>
+                <li class="nav-item"><a class="nav-link" href="/Laptop">Laptop</a></li>
+                <li class="nav-item"><a class="nav-link" href="/DienThoai">Điện thoại</a></li>
+            </ul>
+            <!-- Thêm logo giỏ hàng -->
+            <div class="d-flex align-items-center">
+                <a href="/Cart/Index" class="btn btn-outline-primary position-relative">
+                    <i class="fa fa-shopping-cart"></i> Giỏ hàng
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="cart-count">
+                        @ViewBag.CartCount
+                    </span>
+                </a>
+            </div>
+        </div>
+    </div>
 </nav>
+         
