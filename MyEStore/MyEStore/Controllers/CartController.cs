@@ -6,6 +6,7 @@ namespace MyEStore.Controllers
 {
     public class CartController : Controller
     {
+        const string CART_KEY = "MY_CART";
         private readonly MyeStoreContext _ctx;
 
         public CartController(MyeStoreContext ctx)
@@ -13,32 +14,25 @@ namespace MyEStore.Controllers
             _ctx = ctx;
         }
 
-        public const string CART_NAME = "CART";
-
-        // Lấy giỏ hàng từ Session
+        // Lấy danh sách sản phẩm trong giỏ hàng từ Session
         public List<CartItem> CartItems
         {
             get
             {
-                return HttpContext.Session.Get<List<CartItem>>(CART_NAME) ?? new List<CartItem>();
-            }
-            set
-            {
-                HttpContext.Session.Set(CART_NAME, value);
+                var carts = HttpContext.Session.Get<List<CartItem>>(CART_KEY);
+                if (carts == null)
+                {
+                    carts = new List<CartItem>();
+                }
+                return carts;
             }
         }
 
-        // Trang hiển thị giỏ hàng
+        // Hiển thị giỏ hàng
         public IActionResult Index()
         {
-            // Lấy giỏ hàng từ Session hoặc tạo giỏ hàng rỗng
-            var cart = CartItems;
-
-            // Tính tổng số lượng sản phẩm trong giỏ
-            ViewBag.CartCount = cart.Sum(item => item.SoLuong);
-
-            // Truyền giỏ hàng vào View
-            return View(cart);
+            ViewBag.TotalPrice = CartItems.Sum(item => item.SoLuong * item.DonGia);
+            return View(CartItems);
         }
 
         // Thêm sản phẩm vào giỏ hàng
@@ -47,26 +41,26 @@ namespace MyEStore.Controllers
             if (qty <= 0)
             {
                 TempData["ThongBao"] = "Số lượng phải lớn hơn 0.";
-                return RedirectToAction("Index", "Product");
+                return RedirectToAction("Index", "Products");
             }
 
-            var cart = CartItems; // Lấy giỏ hàng từ Session
+            var cart = HttpContext.Session.Get<List<CartItem>>(CART_KEY) ?? new List<CartItem>();
 
-            // Kiểm tra sản phẩm đã tồn tại trong giỏ
+            // Kiểm tra xem sản phẩm đã có trong giỏ hàng hay chưa
             var cartItem = cart.SingleOrDefault(p => p.MaHh == id);
             if (cartItem != null)
             {
-                // Sản phẩm đã tồn tại => Cộng thêm số lượng
+                // Nếu đã có, tăng số lượng sản phẩm
                 cartItem.SoLuong += qty;
             }
             else
             {
                 // Lấy thông tin sản phẩm từ cơ sở dữ liệu
-                var hangHoa = _ctx.HangHoas.SingleOrDefault(p => p.MaHh == id);
+                var hangHoa = _ctx.HangHoas.SingleOrDefault(h => h.MaHh == id);
                 if (hangHoa == null)
                 {
-                    TempData["ThongBao"] = $"Không tìm thấy sản phẩm có mã {id}";
-                    return RedirectToAction("Index", "Product");
+                    TempData["ThongBao"] = $"Không tìm thấy hàng hóa có mã {id}.";
+                    return RedirectToAction("Index", "Products");
                 }
 
                 // Thêm sản phẩm mới vào giỏ hàng
@@ -74,73 +68,39 @@ namespace MyEStore.Controllers
                 {
                     MaHh = id,
                     TenHh = hangHoa.TenHh,
-                    DonGia = hangHoa.DonGia ?? 0,
                     Hinh = hangHoa.Hinh,
+                    DonGia = hangHoa.DonGia ?? 0,
                     SoLuong = qty
                 };
                 cart.Add(cartItem);
             }
 
-            CartItems = cart; // Lưu lại giỏ hàng vào Session
-            return RedirectToAction("Index"); // Quay lại trang giỏ hàng
+            // Cập nhật giỏ hàng vào Session
+            HttpContext.Session.Set(CART_KEY, cart);
+
+            TempData["ThongBao"] = "Sản phẩm đã được thêm vào giỏ hàng.";
+            return RedirectToAction("Index", "Products");
         }
 
-        // Xác nhận xóa sản phẩm
-        public IActionResult ConfirmDelete(int id)
-        {
-            var cart = CartItems;
-
-            // Tìm sản phẩm cần xóa
-            var item = cart.SingleOrDefault(p => p.MaHh == id);
-            if (item == null)
-            {
-                TempData["ErrorMessage"] = "Không tìm thấy sản phẩm trong giỏ hàng.";
-                return RedirectToAction("Index");
-            }
-
-            // Truyền sản phẩm vào View
-            return View(item);
-        }
 
         // Xóa sản phẩm khỏi giỏ hàng
-        [HttpPost]
-        public IActionResult DeleteConfirmed(int id)
+        public IActionResult RemoveCartItem(int id)
         {
             var cart = CartItems;
+            var cartItem = cart.SingleOrDefault(p => p.MaHh == id);
 
-            // Tìm sản phẩm cần xóa
-            var item = cart.SingleOrDefault(p => p.MaHh == id);
-            if (item != null)
+            if (cartItem != null)
             {
-                cart.Remove(item); // Xóa sản phẩm khỏi giỏ hàng
-                CartItems = cart; // Cập nhật Session
-                TempData["SuccessMessage"] = "Sản phẩm đã được xóa khỏi giỏ hàng.";
+                cart.Remove(cartItem);
+                HttpContext.Session.Set(CART_KEY, cart);
+                TempData["ThongBao"] = "Sản phẩm đã được xóa khỏi giỏ hàng.";
             }
             else
             {
-                TempData["ErrorMessage"] = "Không tìm thấy sản phẩm trong giỏ hàng.";
+                TempData["ThongBao"] = "Không tìm thấy sản phẩm trong giỏ hàng.";
             }
 
             return RedirectToAction("Index");
-        }
-
-        // Xóa sản phẩm qua AJAX
-        [HttpPost]
-        [Route("Cart/RemoveCart/{id}")]
-        public IActionResult RemoveCart(int id)
-        {
-            var cart = CartItems;
-
-            // Tìm sản phẩm cần xóa
-            var item = cart.SingleOrDefault(p => p.MaHh == id);
-            if (item != null)
-            {
-                cart.Remove(item); // Xóa sản phẩm khỏi giỏ hàng
-                CartItems = cart; // Cập nhật Session
-                return Ok(new { success = true, message = "Xóa sản phẩm thành công." });
-            }
-
-            return NotFound(new { success = false, message = "Không tìm thấy sản phẩm trong giỏ hàng." });
         }
 
         // Cập nhật số lượng sản phẩm
@@ -149,34 +109,33 @@ namespace MyEStore.Controllers
         {
             if (qty <= 0)
             {
-                return BadRequest(new { success = false, message = "Số lượng phải lớn hơn 0." });
+                TempData["ThongBao"] = "Số lượng phải lớn hơn 0.";
+                return RedirectToAction("Index");
             }
 
             var cart = CartItems;
+            var cartItem = cart.SingleOrDefault(p => p.MaHh == id);
 
-            // Tìm sản phẩm cần cập nhật
-            var item = cart.SingleOrDefault(p => p.MaHh == id);
-            if (item != null)
+            if (cartItem != null)
             {
-                item.SoLuong = qty; // Cập nhật số lượng sản phẩm
-
-                CartItems = cart; // **Cập nhật Session**
-
-                // Tính tổng tiền sản phẩm này
-                var updatedSubtotal = item.DonGia * item.SoLuong;
-
-                // Tính tổng tiền của toàn bộ giỏ hàng
-                var totalPrice = cart.Sum(p => p.DonGia * p.SoLuong);
-
-                return Ok(new
-                {
-                    success = true,
-                    subtotal = updatedSubtotal.ToString("C", System.Globalization.CultureInfo.CreateSpecificCulture("en-US")),
-                    totalPrice = totalPrice.ToString("C", System.Globalization.CultureInfo.CreateSpecificCulture("en-US"))
-                });
+                cartItem.SoLuong = qty;
+                HttpContext.Session.Set(CART_KEY, cart);
+                TempData["ThongBao"] = "Số lượng sản phẩm đã được cập nhật.";
+            }
+            else
+            {
+                TempData["ThongBao"] = "Không tìm thấy sản phẩm trong giỏ hàng.";
             }
 
-            return NotFound(new { success = false, message = "Không tìm thấy sản phẩm trong giỏ hàng." });
+            return RedirectToAction("Index");
+        }
+
+        // Xóa toàn bộ giỏ hàng
+        public IActionResult ClearCart()
+        {
+            HttpContext.Session.Remove(CART_KEY);
+            TempData["ThongBao"] = "Giỏ hàng đã được làm trống.";
+            return RedirectToAction("Index");
         }
     }
 }

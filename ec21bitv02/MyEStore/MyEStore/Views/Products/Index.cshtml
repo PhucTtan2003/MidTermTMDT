@@ -41,7 +41,11 @@
 			<a asp-action="Detail" asp-route-id="@hh.MaHh">
 				<img src="~/Hinh/HangHoa/@hh.Hinh" alt="@hh.TenHh" class="hh-box-img" />
 			</a>
-			<a class="btn btn-primary hh-box-mua" asp-controller="Cart" asp-action="AddToCart" asp-route-id="@hh.MaHh">MUA</a>
+			<div class="hh-box-actions">
+				<!-- Nút Mua và Thêm vào giỏ hàng -->
+				<a class="btn btn-primary" asp-controller="Index" asp-action="Payment" asp-route-id="@hh.MaHh">Mua</a>
+				<a class="btn btn-success" asp-controller="Cart" asp-action="AddToCart" asp-route-id="@hh.MaHh">Thêm vào</a>
+			</div>
 			<div class="hh-box-gia">@hh.DonGia $</div>
 		</div>
 	}

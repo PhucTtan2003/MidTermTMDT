@@ -1,5 +1,7 @@
+﻿using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using MyEStore.Entities;
+using MyEStore.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,9 +14,25 @@ builder.Services.AddDbContext<MyeStoreContext>(options => {
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession(options =>
 {
-    options.IdleTimeout = TimeSpan.FromSeconds(30);
+    options.IdleTimeout = TimeSpan.FromMinutes(20);
 });
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.ExpireTimeSpan = TimeSpan.FromMinutes(20);
+        options.SlidingExpiration = true;
+        options.LoginPath = "/Customer/Login";
+        options.AccessDeniedPath = "/Forbidden/";
+    });
 
+//đăng ký PaymentClient dạng Singleton
+builder.Services.AddSingleton(x =>
+	new PaypalClient(
+		builder.Configuration["PayPalOptions:ClientId"],
+		builder.Configuration["PayPalOptions:ClientSecret"],
+		builder.Configuration["PayPalOptions:Mode"]
+	)
+);
 
 var app = builder.Build();
 
@@ -32,7 +50,7 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseSession();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
