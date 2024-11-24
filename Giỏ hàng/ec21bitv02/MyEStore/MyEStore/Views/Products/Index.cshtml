@@ -3,7 +3,7 @@
 @{
 	ViewData["Title"] = "Index";
     // Lấy giỏ hàng từ Session và tính tổng số lượng sản phẩm
-    int cartItemCount = Context.Session.Get<List<MyEStore.Models.CartItem>>("MY_CART")?.Sum(x => x.SoLuong) ?? 0;
+    int cartItemCount = Context.Session.Get<List<MyEStore.Models.CartItem>>("MY_CART")?.Count ?? 0;
 }
 <style>
 	.hh-box {
@@ -102,15 +102,11 @@
                 {
                     <div class="col-md-4">
                         <div class="hh-box">
+                            <h3 class="hh-box-name">@hh.TenHh</h3>
                             <a asp-action="Detail" asp-route-id="@hh.MaHh">
                                 <img src="~/Hinh/HangHoa/@hh.Hinh" alt="@hh.TenHh" class="hh-box-img" />
                             </a>
-                            <a class="btn btn-secondary hh-box-edit" asp-action="Edit" asp-route-id="@hh.MaHh">Sửa</a>
-                            <div class="hh-box-actions">
-                                <!-- Nút Mua và Thêm vào giỏ hàng -->
-                                <a class="btn btn-primary" asp-controller="Cart" asp-action="AddToCartAndPurchase" asp-route-id="@hh.MaHh">Mua</a>
-                                <a class="btn btn-success" asp-controller="Cart" asp-action="AddToCart" asp-route-id="@hh.MaHh">Thêm vào</a>
-                            </div>
+                            <a asp-action="AddToCartAndPurchase" asp-controller="Cart" asp-route-id="@hh.MaHh" class="btn btn-primary hh-box-mua">MUA</a>
                         </div>
                     </div>
                 }
