@@ -123,14 +123,12 @@ namespace MyEStore.Controllers
 
 			return RedirectToAction("Index");
 		}
-		// Cập nhật số lượng sản phẩm
 		[HttpPost]
 		public IActionResult UpdateCart(int id, int qty)
 		{
 			if (qty <= 0)
 			{
-				TempData["ThongBao"] = "Số lượng phải lớn hơn 0.";
-				return RedirectToAction("Index");
+				return Json(new { success = false, message = "Số lượng phải lớn hơn 0." });
 			}
 
 			var cart = CartItems;
@@ -140,16 +138,18 @@ namespace MyEStore.Controllers
 			{
 				cartItem.SoLuong = qty;
 				HttpContext.Session.Set(CART_KEY, cart);
-				TempData["ThongBao"] = "Số lượng sản phẩm đã được cập nhật.";
-			}
-			else
-			{
-				TempData["ThongBao"] = "Không tìm thấy sản phẩm trong giỏ hàng.";
+
+				// Tính toán lại tổng tiền của mặt hàng
+				var newTotal = cartItem.DonGia * cartItem.SoLuong;
+
+				// Tính tổng giá trị giỏ hàng
+				var cartTotal = cart.Sum(item => item.DonGia * item.SoLuong);
+
+				return Json(new { success = true, newTotal, cartTotal });
 			}
 
-			return RedirectToAction("Index");
+			return Json(new { success = false, message = "Không tìm thấy sản phẩm trong giỏ hàng." });
 		}
-
 		// Xóa toàn bộ giỏ hàng
 		public IActionResult ClearCart()
 		{

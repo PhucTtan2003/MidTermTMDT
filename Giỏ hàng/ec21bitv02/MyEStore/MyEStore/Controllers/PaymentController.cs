@@ -1,183 +1,195 @@
-﻿﻿using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MyEStore.Entities;
 using MyEStore.Models;
 using MyEStore.Models.VnPay;
 using MyEStore.Services;
 using System.Security.Claims;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace MyEStore.Controllers
 {
-	[Authorize]
-	public class PaymentController : Controller
-	{
-		private readonly PaypalClient _paypalClient;
-		private readonly MyeStoreContext _ctx;
-		private readonly IVnPayService _vpnPayService;
+    [Authorize]
+    public class PaymentController : Controller
+    {
+        private readonly PaypalClient _paypalClient;
+        private readonly MyeStoreContext _ctx;
+        private readonly IVnPayService _vnPayService;
 
-		public PaymentController(PaypalClient paypalClient, MyeStoreContext ctx, IVnPayService vnPayService)
-		{
-			_paypalClient = paypalClient;
-			_ctx = ctx;
-			_vpnPayService = vnPayService;
-		}
+        // Constructor
+        public PaymentController(PaypalClient paypalClient, MyeStoreContext ctx, IVnPayService vnPayService)
+        {
+            _paypalClient = paypalClient;
+            _ctx = ctx;
+            _vnPayService = vnPayService;
+        }
 
-		public IActionResult Index()
-		{
-			ViewBag.PaypalClientId = _paypalClient.ClientId;
-			return View(CartItems);
-		}
+        // Lấy thông tin giỏ hàng từ Session
+        private const string CART_KEY = "MY_CART";
 
-		const string CART_KEY = "MY_CART";
-		public List<CartItem> CartItems
-		{
-			get
-			{
-				var carts = HttpContext.Session.Get<List<CartItem>>(CART_KEY);
-				if (carts == null)
-				{
-					carts = new List<CartItem>();
-				}
-				return carts;
-			}
-		}
+        public List<CartItem> CartItems
+        {
+            get
+            {
+                var carts = HttpContext.Session.Get<List<CartItem>>(CART_KEY);
+                return carts ?? new List<CartItem>();
+            }
+        }
 
-		[HttpPost]
-		public async Task<IActionResult> PaypalOrder(CancellationToken cancellationToken)
-		{
-			// Tạo đơn hàng (thông tin lấy từ Session???)
-			var tongTien = CartItems.Sum(p => p.ThanhTien).ToString();
-			var donViTienTe = "USD";
-			// OrderId - mã tham chiếu (duy nhất)
-			var orderIdref = "DH" + DateTime.Now.Ticks.ToString();
+        // Hiển thị giao diện thanh toán
+        public IActionResult Index()
+        {
+            ViewBag.PaypalClientId = _paypalClient.ClientId;
+            return View(CartItems);
+        }
 
-			try
-			{
-				// a. Create paypal order
-				var response = await _paypalClient.CreateOrder(tongTien, donViTienTe, orderIdref);
+        #region **Thanh toán PayPal**
+        [HttpPost]
+        public async Task<IActionResult> PaypalOrder(CancellationToken cancellationToken)
+        {
+            var totalAmount = CartItems.Sum(p => p.ThanhTien).ToString("F2");
+            var currency = "USD";
+            var orderReference = "DH" + DateTime.Now.Ticks;
 
-				return Ok(response);
-			}
-			catch (Exception e)
-			{
-				var error = new
-				{
-					e.GetBaseException().Message
-				};
+            try
+            {
+                var response = await _paypalClient.CreateOrder(totalAmount, currency, orderReference);
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { Message = ex.GetBaseException().Message });
+            }
+        }
 
-				return BadRequest(error);
-			}
-		}
+        [HttpPost]
+        public async Task<IActionResult> PaypalCapture(string orderId, CancellationToken cancellationToken)
+        {
+            try
+            {
+                var response = await _paypalClient.CaptureOrder(orderId);
 
-		public async Task<IActionResult> PaypalCapture(string orderId, CancellationToken cancellationToken)
-		{
-			try
-			{
-				var response = await _paypalClient.CaptureOrder(orderId);
+                if (response.status == "COMPLETED")
+                {
+                    SaveOrderToDatabase(response, "PayPal");
+                    ClearCart();
+                    return Ok(response);
+                }
+                else
+                {
+                    return BadRequest(new { Message = "Thanh toán không hoàn tất." });
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { Message = ex.GetBaseException().Message });
+            }
+        }
+        #endregion
 
-				//nhớ kiểm tra status complete
-				if (response.status == "COMPLETED")
-				{
-					var reference = response.purchase_units[0].reference_id;//mã đơn hàng mình tạo ở trên
+        #region **Thanh toán VNPay**
+        public IActionResult CreatePaymentUrl(VnPaymentRequestModel model)
+        {
+            var paymentUrl = _vnPayService.CreatePaymentUrl(HttpContext, model);
+            return Redirect(paymentUrl);
+        }
 
-					// Put your logic to save the transaction here
-					// You can use the "reference" variable as a transaction key
-					// 1. Tạo và Lưu đơn hàng vô database
-					// TransactionId của Seller: response.payments.captures[0].id
-					var hoaDon = new HoaDon
-					{
-						MaKh = User.FindFirstValue("UserId"),
-						NgayDat = DateTime.Now,
-						HoTen = User.Identity.Name,
-						DiaChi = "N/A",//tự update
-						CachThanhToan = "Paypal",
-						CachVanChuyen = "N/A",
-						MaTrangThai = 0, //Mới đặt hàng
-						GhiChu = $"reference_id={reference}, transactionId={response.purchase_units[0].payments.captures[0].id}"
-					};
-					_ctx.Add(hoaDon);
-					_ctx.SaveChanges();
-					foreach (var item in CartItems)
-					{
-						var cthd = new ChiTietHd
-						{
-							MaHd = hoaDon.MaHd,
-							MaHh = item.MaHh,
-							DonGia = item.DonGia,
-							SoLuong = item.SoLuong,
-							GiamGia = 1
-						};
-						_ctx.Add(cthd);
-					}
-					_ctx.SaveChanges();
-					//2. Xóa session giỏ hàng
-					HttpContext.Session.Set(CART_KEY, new List<CartItem>());
+        [HttpGet]
+        public IActionResult PaymentCallBack()
+        {
+            var response = _vnPayService.PaymentExecute(Request.Query);
 
-					return Ok(response);
-				}
-				else
-				{
-					return BadRequest(new { Message = "Có lỗi thanh toán" });
-				}
-			}
-			catch (Exception e)
-			{
-				var error = new
-				{
-					e.GetBaseException().Message
-				};
+            if (response == null || response.VnPayResponseCode != "00")
+            {
+                TempData["Message"] = $"Lỗi thanh toán VNPay: {response.VnPayResponseCode}";
+                return RedirectToAction("PaymentFail");
+            }
 
-				return BadRequest(error);
-			}
-		}
+            SaveOrderToDatabase(response, "VNPay");
+            ClearCart();
 
-		public IActionResult Success()
-		{
-			return View();
-		}
+            TempData["Message"] = "Thanh toán VNPay thành công.";
+            return RedirectToAction("Success");
+        }
+        #endregion
 
-		//VNPay
-		[Authorize]
-		[HttpPost]
-		public IActionResult VnPayOrder()
-		{
-			return View();
-		}
+        #region **Xử lý đơn hàng**
+        private void SaveOrderToDatabase(dynamic paymentResponse, string paymentMethod)
+        {
+            var orderReference = paymentResponse.purchase_units?[0].reference_id ?? "N/A";
+            var transactionId = paymentResponse.purchase_units?[0].payments?.captures?[0]?.id ?? "N/A";
 
+            var hoaDon = new HoaDon
+            {
+                MaKh = User.FindFirstValue("UserId"),
+                NgayDat = DateTime.Now,
+                HoTen = User.Identity.Name,
+                DiaChi = "N/A",
+                CachThanhToan = paymentMethod,
+                CachVanChuyen = "N/A",
+                MaTrangThai = 0, // Mới đặt hàng
+                GhiChu = $"Reference ID: {orderReference}, Transaction ID: {transactionId}"
+            };
 
+            _ctx.HoaDons.Add(hoaDon);
+            _ctx.SaveChanges();
 
-		[Authorize]
-		public IActionResult PaymentFail()
-		{
-			return View();
-		}
+            foreach (var item in CartItems)
+            {
+                var chiTietHd = new ChiTietHd
+                {
+                    MaHd = hoaDon.MaHd,
+                    MaHh = item.MaHh,
+                    DonGia = item.DonGia,
+                    SoLuong = item.SoLuong,
+                    GiamGia = 1
+                };
+                _ctx.ChiTietHds.Add(chiTietHd);
+            }
 
-		public IActionResult CreatePaymentUrl(VnPaymentRequestModel model)
-		{
-			var url = _vpnPayService.CreatePaymentUrl(HttpContext, model);
-			return Redirect(url);
-		}
+            _ctx.SaveChanges();
+        }
 
-		[Authorize]
-		[HttpGet]
-		public IActionResult PaymentCallBack()
-		{
-			var response = _vpnPayService.PaymentExecute(Request.Query);
+        private void ClearCart()
+        {
+            HttpContext.Session.Set(CART_KEY, new List<CartItem>());
+        }
+        #endregion
 
-			if (response == null || response.VnPayResponseCode != "00")
-			{
-				TempData["Message"] = $"Lỗi thanh toán VN Pay: {response.VnPayResponseCode}";
-				return RedirectToAction("PaymentFail");
-			}
+        #region **Giao diện thành công và thất bại**
+        public IActionResult Success()
+        {
+            return View();
+        }
 
+        public IActionResult PaymentFail()
+        {
+            return View();
+        }
+        #endregion
 
-			// Lưu đơn hàng vô database
+        #region **Cập nhật thông tin thanh toán**
+        [HttpPost]
+        public IActionResult UpdatePayment(int orderId, string paymentMethod)
+        {
+            try
+            {
+                var order = _ctx.HoaDons.FirstOrDefault(o => o.MaHd == orderId);
 
-			TempData["Message"] = $"Thanh toán VNPay thành công";
-			return RedirectToAction("PaymentSuccess");
-		}
+                if (order == null)
+                {
+                    return NotFound(new { Message = "Không tìm thấy đơn hàng." });
+                }
 
-	}
+                order.CachThanhToan = paymentMethod;
+                _ctx.SaveChanges();
+
+                return Ok(new { Message = "Cập nhật phương thức thanh toán thành công." });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { Message = ex.GetBaseException().Message });
+            }
+        }
+        #endregion
+    }
 }
-

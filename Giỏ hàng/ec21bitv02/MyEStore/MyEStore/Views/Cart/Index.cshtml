@@ -7,37 +7,88 @@
 <h1>Giỏ hàng</h1>
 
 <div class="cart-table table-responsive">
-	<table class="table table-bordered">
-		<thead>
-			<tr>
-				<th class="pro-thumbnail">Thumbnail</th>
-				<th class="pro-title">Product</th>
-				<th class="pro-price">Price</th>
-				<th class="pro-quantity">Quantity</th>
-				<th class="pro-subtotal">Total</th>
-				<th class="pro-remove">Remove</th>
-			</tr>
-		</thead>
-		<tbody>
-			@foreach (var item in Model)
-			{
-				<tr>
-					<td>
-						<img src="~/Hinh/HangHoa/@item.Hinh" alt="@item.TenHh" height="100" />
-					</td>
-					<td>@item.TenHh</td>
-					<td>@item.DonGia</td>
-					<td>
-						<input value="@item.SoLuong" min="0" />
-					</td>
-					<td>@item.ThanhTien</td>
-					<td>
-						<a asp-action="RemoveCartItem" asp-route-id="@item.MaHh" class="btn btn-danger">Xóa</a>
-					</td>
-				</tr>
-			}
-		</tbody>
-	</table>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th class="pro-thumbnail">Thumbnail</th>
+                <th class="pro-title">Product</th>
+                <th class="pro-price">Price</th>
+                <th class="pro-quantity">Quantity</th>
+                <th class="pro-subtotal">Total</th>
+                <th class="pro-remove">Remove</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <img src="~/Hinh/HangHoa/@item.Hinh" alt="@item.TenHh" height="100" />
+                    </td>
+                    <td>@item.TenHh</td>
+                    <td>@item.DonGia</td>
+                    <td>
+                        <div class="input-group">
+                            <button class="btn btn-outline-secondary decrease-qty" data-id="@item.MaHh">-</button>
+                            <input class="form-control text-center update-qty" value="@item.SoLuong" data-id="@item.MaHh" min="1" />
+                            <button class="btn btn-outline-secondary increase-qty" data-id="@item.MaHh">+</button>
+                        </div>
+                    </td>
+                    <td class="item-total" data-id="@item.MaHh">@item.ThanhTien</td>
+                    <td>
+                        <a asp-action="RemoveCartItem" asp-route-id="@item.MaHh" class="btn btn-danger">Xóa</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>
 
 <a asp-action="Index" asp-controller="Payment" class="btn btn-success">Thanh toán</a>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $(".increase-qty").click(function () {
+                const id = $(this).data("id");
+                const input = $(`input[data-id='${id}']`);
+                const newQty = parseInt(input.val()) + 1;
+                updateCart(id, newQty);
+            });
+
+            $(".decrease-qty").click(function () {
+                const id = $(this).data("id");
+                const input = $(`input[data-id='${id}']`);
+                const newQty = Math.max(1, parseInt(input.val()) - 1);
+                updateCart(id, newQty);
+            });
+
+            $(".update-qty").change(function () {
+                const id = $(this).data("id");
+                const newQty = Math.max(1, parseInt($(this).val()));
+                updateCart(id, newQty);
+            });
+
+            function updateCart(id, qty) {
+                $.ajax({
+                    url: '/Cart/UpdateCart',
+                    type: 'POST',
+                    data: { id: id, qty: qty },
+                    success: function (response) {
+                        // Cập nhật giao diện giỏ hàng
+                        $(`input[data-id='${id}']`).val(qty);
+                        const itemTotal = $(`.item-total[data-id='${id}']`);
+                        const newTotal = response.newTotal;
+                        itemTotal.text(newTotal);
+
+ 
+                        $("#cart-total").text(response.cartTotal);
+                    },
+                    error: function () {
+                        alert("Có lỗi xảy ra khi cập nhật giỏ hàng.");
+                    }
+                });
+            }
+        });
+    </script>
+}
