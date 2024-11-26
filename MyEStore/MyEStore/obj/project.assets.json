@@ -8051,11 +8051,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Thinh Nguyen\\Documents\\Zalo Received Files\\ec21bitv02-main (2)\\ec21bitv02-main\\MyEStore\\MyEStore\\MyEStore.csproj",
+      "projectUniqueName": "C:\\Users\\Thinh Nguyen\\Downloads\\MidTermTMDT\\MyEStore\\MyEStore\\MyEStore.csproj",
       "projectName": "MyEStore",
-      "projectPath": "C:\\Users\\Thinh Nguyen\\Documents\\Zalo Received Files\\ec21bitv02-main (2)\\ec21bitv02-main\\MyEStore\\MyEStore\\MyEStore.csproj",
+      "projectPath": "C:\\Users\\Thinh Nguyen\\Downloads\\MidTermTMDT\\MyEStore\\MyEStore\\MyEStore.csproj",
       "packagesPath": "C:\\Users\\Thinh Nguyen\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Thinh Nguyen\\Documents\\Zalo Received Files\\ec21bitv02-main (2)\\ec21bitv02-main\\MyEStore\\MyEStore\\obj\\",
+      "outputPath": "C:\\Users\\Thinh Nguyen\\Downloads\\MidTermTMDT\\MyEStore\\MyEStore\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Thinh Nguyen\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Jyh5poA7HXA=",
+  "dgSpecHash": "3AZRPeJaYW0=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Thinh Nguyen\\Documents\\Zalo Received Files\\ec21bitv02-main (2)\\ec21bitv02-main\\MyEStore\\MyEStore\\MyEStore.csproj",
+  "projectFilePath": "C:\\Users\\Thinh Nguyen\\Downloads\\MidTermTMDT\\MyEStore\\MyEStore\\MyEStore.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Thinh Nguyen\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\Thinh Nguyen\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
