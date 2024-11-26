@@ -1,0 +1,99 @@
+﻿@model IEnumerable<Shopee.Data.Hanghoa>
+
+@{
+    ViewData["Title"] = "Danh sách sản phẩm";
+    var userName = User.Identity.IsAuthenticated ? User.Identity.Name : null; // Kiểm tra xem người dùng đã đăng nhập chưa
+}
+
+<div class="container mt-3">
+    <!-- Header: Tên người dùng và nút giỏ hàng -->
+    <div class="d-flex justify-content-between mb-3 align-items-center">
+        <!-- Hiển thị lời chào hoặc thông tin người dùng -->
+        <div>
+            @if (!string.IsNullOrEmpty(userName))
+            {
+                <p class="mb-0">Chào mừng, <strong>@userName</strong>!</p>
+            }
+            else
+            {
+                <p class="mb-0">Chào mừng đến với cửa hàng của chúng tôi!</p>
+            }
+        </div>
+
+        <!-- Nút Đăng nhập/Đăng ký hoặc Đăng xuất và giỏ hàng -->
+        <div class="d-flex align-items-center">
+            <a asp-controller="Cart" asp-action="Index" class="btn btn-primary me-3 position-relative">
+                <i class="fas fa-shopping-cart"></i> Giỏ hàng
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="cart-item-count">
+                    0
+                </span>
+            </a>
+            @if (!User.Identity.IsAuthenticated)
+            {
+                <!-- Hiển thị nút Đăng nhập và Đăng ký nếu chưa đăng nhập -->
+                <a asp-controller="Customer" asp-action="Login" class="btn btn-primary me-2">Đăng nhập</a>
+                <a asp-controller="Customer" asp-action="Register" class="btn btn-success">Đăng ký</a>
+            }
+            else
+            {
+                <!-- Hiển thị nút Đăng xuất nếu đã đăng nhập -->
+                <a asp-controller="Customer" asp-action="Logout" class="btn btn-danger">Đăng xuất</a>
+            }
+        </div>
+    </div>
+
+    <!-- Danh sách sản phẩm -->
+    <h1 class="text-center mb-4">Danh sách sản phẩm</h1>
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-3 mb-4">
+                <div class="card h-100">
+                    <!-- Hiển thị hình ảnh -->
+                    <img src="@item.Hinh" class="card-img-top" alt="@item.TenHh" style="height: 200px; object-fit: cover;" />
+
+                    <div class="card-body">
+                        <!-- Tên sản phẩm -->
+                        <h5 class="card-title">@item.TenHh</h5>
+
+                        <!-- Giá và giảm giá -->
+                        <p class="card-text text-danger">
+                            Giá: @string.Format("{0:0,0} VND", item.DonGia ?? 0)
+                        </p>
+                        <p class="card-text text-success">
+                            Giảm giá: @item.GiamGia%
+                        </p>
+
+                        <!-- Lượt xem -->
+                        <p class="card-text text-muted">
+                            Số lượt xem: @item.SoLanXem
+                        </p>
+
+                        <!-- Nút chi tiết và thêm vào giỏ -->
+                        <div class="d-flex justify-content-between">
+                            <a asp-controller="Product" asp-action="Details" asp-route-id="@item.MaHh" class="btn btn-primary">Xem chi tiết</a>
+                            <a asp-controller="Cart" asp-action="AddToCart" asp-route-maHh="@item.MaHh" class="btn btn-success">Thêm vào giỏ</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Gửi yêu cầu AJAX để lấy số lượng sản phẩm trong giỏ hàng
+        function updateCartItemCount() {
+            fetch('/Cart/GetCartItemCount')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('cart-item-count').innerText = data;
+                })
+                .catch(error => console.error('Error fetching cart item count:', error));
+        }
+
+        // Gọi hàm cập nhật số lượng khi tải trang
+        document.addEventListener('DOMContentLoaded', updateCartItemCount);
+    </script>
+}

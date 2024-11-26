@@ -1,0 +1,93 @@
+﻿@model List<Shopee.Models.CartItemVMViewModel>
+
+@{
+    ViewData["Title"] = "Giỏ hàng của bạn";
+}
+
+<div class="container mt-5">
+    <h1 class="mb-4 text-center">Giỏ hàng của bạn</h1>
+
+    <!-- Hiển thị thông báo nếu có -->
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["SuccessMessage"]
+        </div>
+    }
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger">
+            @TempData["ErrorMessage"]
+        </div>
+    }
+
+    <!-- Kiểm tra nếu giỏ hàng trống -->
+    @if (!Model.Any())
+    {
+        <div class="alert alert-warning text-center">
+            Giỏ hàng của bạn đang trống!
+        </div>
+        <div class="text-center">
+            <a href="/Product" class="btn btn-primary">Tiếp tục mua sắm</a>
+        </div>
+    }
+    else
+    {
+        <table class="table table-bordered align-middle">
+            <thead>
+                <tr>
+                    <th class="text-center">Hình ảnh</th>
+                    <th>Tên sản phẩm</th>
+                    <th class="text-end">Đơn giá</th>
+                    <th class="text-center">Số lượng</th>
+                    <th class="text-end">Thành tiền</th>
+                    <th class="text-center">Hành động</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <!-- Hình ảnh sản phẩm -->
+                        <td class="text-center">
+                            <img src="@item.Hinh" alt="@item.TenHh" style="width: 100px; height: 100px; object-fit: cover;" />
+                        </td>
+
+                        <!-- Tên sản phẩm -->
+                        <td>@item.TenHh</td>
+
+                        <!-- Đơn giá -->
+                        <td class="text-end">@string.Format("{0:0,0} VND", item.DonGia ?? 0)</td>
+
+                        <!-- Số lượng -->
+                        <td class="text-center">
+                            <form asp-action="UpdateQuantity" asp-controller="Cart" method="post" asp-antiforgery="true" class="d-flex justify-content-center">
+                                <input type="hidden" name="MaHh" value="@item.MaHh" />
+                                <input type="number" name="SoLuong" value="@item.SoLuong" min="1" class="form-control text-center" style="width: 60px;" />
+                                <button type="submit" class="btn btn-sm btn-primary ms-2">Cập nhật</button>
+                            </form>
+                        </td>
+
+                        <!-- Thành tiền -->
+                        <td class="text-end">@string.Format("{0:0,0} VND", item.ThanhTien)</td>
+
+                        <!-- Nút xóa -->
+                        <td class="text-center">
+                            <form asp-action="RemoveFromCart" asp-controller="Cart" method="post" asp-antiforgery="true">
+                                <input type="hidden" name="MaHh" value="@item.MaHh" />
+                                <button type="submit" class="btn btn-sm btn-danger">Xóa</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <!-- Tổng cộng và nút thanh toán -->
+        <div class="text-end">
+            <h4 class="fw-bold">Tổng cộng: <span class="text-success">@string.Format("{0:0,0} VND", Model.Sum(item => item.ThanhTien))</span></h4>
+            <a asp-action="Checkout" asp-controller="Cart" class="btn btn-success">Thanh toán</a>
+            <a href="/Product" class="btn btn-secondary">Tiếp tục mua sắm</a>
+        </div>
+    }
+</div>

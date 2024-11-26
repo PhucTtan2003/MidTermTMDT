@@ -1,0 +1,570 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Thinh Nguyen\\Documents\\Zalo Received Files\\Thinhdtr\\Shopee\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{55D7C7B6-FB26-4FC2-8C42-9EC482F7145F}|Shopee\\Shopee.csproj|c:\\users\\thinh nguyen\\documents\\zalo received files\\thinhdtr\\shopee\\shopee\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{55D7C7B6-FB26-4FC2-8C42-9EC482F7145F}|Shopee\\Shopee.csproj|solutionrelative:shopee\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{55D7C7B6-FB26-4FC2-8C42-9EC482F7145F}|Shopee\\Shopee.csproj|c:\\users\\thinh nguyen\\documents\\zalo received files\\thinhdtr\\shopee\\shopee\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{55D7C7B6-FB26-4FC2-8C42-9EC482F7145F}|Shopee\\Shopee.csproj|solutionrelative:shopee\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{55D7C7B6-FB26-4FC2-8C42-9EC482F7145F}|Shopee\\Shopee.csproj|c:\\users\\thinh nguyen\\documents\\zalo received files\\thinhdtr\\shopee\\shopee\\data\\shopporcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{55D7C7B6-FB26-4FC2-8C42-9EC482F7145F}|Shopee\\Shopee.csproj|solutionrelative:shopee\\data\\shopporcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{55D7C7B6-FB26-4FC2-8C42-9EC482F7145F}|Shopee\\Shopee.csproj|c:\\users\\thinh nguyen\\documents\\zalo received files\\thinhdtr\\shopee\\shopee\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{55D7C7B6-FB26-4FC2-8C42-9EC482F7145F}|Shopee\\Shopee.csproj|solutionrelative:shopee\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{55D7C7B6-FB26-4FC2-8C42-9EC482F7145F}|Shopee\\Shopee.csproj|c:\\users\\thinh nguyen\\documents\\zalo received files\\thinhdtr\\shopee\\shopee\\views\\product\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{55D7C7B6-FB26-4FC2-8C42-9EC482F7145F}|Shopee\\Shopee.csproj|solutionrelative:shopee\\views\\product\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{55D7C7B6-FB26-4FC2-8C42-9EC482F7145F}|Shopee\\Shopee.csproj|c:\\users\\thinh nguyen\\documents\\zalo received files\\thinhdtr\\shopee\\shopee\\views\\cart\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{55D7C7B6-FB26-4FC2-8C42-9EC482F7145F}|Shopee\\Shopee.csproj|solutionrelative:shopee\\views\\cart\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{55D7C7B6-FB26-4FC2-8C42-9EC482F7145F}|Shopee\\Shopee.csproj|c:\\users\\thinh nguyen\\documents\\zalo received files\\thinhdtr\\shopee\\shopee\\models\\cartitemvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{55D7C7B6-FB26-4FC2-8C42-9EC482F7145F}|Shopee\\Shopee.csproj|solutionrelative:shopee\\models\\cartitemvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{55D7C7B6-FB26-4FC2-8C42-9EC482F7145F}|Shopee\\Shopee.csproj|c:\\users\\thinh nguyen\\documents\\zalo received files\\thinhdtr\\shopee\\shopee\\views\\product\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{55D7C7B6-FB26-4FC2-8C42-9EC482F7145F}|Shopee\\Shopee.csproj|solutionrelative:shopee\\views\\product\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{55D7C7B6-FB26-4FC2-8C42-9EC482F7145F}|Shopee\\Shopee.csproj|c:\\users\\thinh nguyen\\documents\\zalo received files\\thinhdtr\\shopee\\shopee\\controllers\\productadmincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{55D7C7B6-FB26-4FC2-8C42-9EC482F7145F}|Shopee\\Shopee.csproj|solutionrelative:shopee\\controllers\\productadmincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{55D7C7B6-FB26-4FC2-8C42-9EC482F7145F}|Shopee\\Shopee.csproj|c:\\users\\thinh nguyen\\documents\\zalo received files\\thinhdtr\\shopee\\shopee\\controllers\\customercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{55D7C7B6-FB26-4FC2-8C42-9EC482F7145F}|Shopee\\Shopee.csproj|solutionrelative:shopee\\controllers\\customercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{55D7C7B6-FB26-4FC2-8C42-9EC482F7145F}|Shopee\\Shopee.csproj|c:\\users\\thinh nguyen\\documents\\zalo received files\\thinhdtr\\shopee\\shopee\\views\\productadmin\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{55D7C7B6-FB26-4FC2-8C42-9EC482F7145F}|Shopee\\Shopee.csproj|solutionrelative:shopee\\views\\productadmin\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{55D7C7B6-FB26-4FC2-8C42-9EC482F7145F}|Shopee\\Shopee.csproj|c:\\users\\thinh nguyen\\documents\\zalo received files\\thinhdtr\\shopee\\shopee\\views\\customer\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{55D7C7B6-FB26-4FC2-8C42-9EC482F7145F}|Shopee\\Shopee.csproj|solutionrelative:shopee\\views\\customer\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{55D7C7B6-FB26-4FC2-8C42-9EC482F7145F}|Shopee\\Shopee.csproj|c:\\users\\thinh nguyen\\documents\\zalo received files\\thinhdtr\\shopee\\shopee\\data\\phanquyen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{55D7C7B6-FB26-4FC2-8C42-9EC482F7145F}|Shopee\\Shopee.csproj|solutionrelative:shopee\\data\\phanquyen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{55D7C7B6-FB26-4FC2-8C42-9EC482F7145F}|Shopee\\Shopee.csproj|c:\\users\\thinh nguyen\\documents\\zalo received files\\thinhdtr\\shopee\\shopee\\models\\registervm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{55D7C7B6-FB26-4FC2-8C42-9EC482F7145F}|Shopee\\Shopee.csproj|solutionrelative:shopee\\models\\registervm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{55D7C7B6-FB26-4FC2-8C42-9EC482F7145F}|Shopee\\Shopee.csproj|c:\\users\\thinh nguyen\\documents\\zalo received files\\thinhdtr\\shopee\\shopee\\views\\productadmin\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{55D7C7B6-FB26-4FC2-8C42-9EC482F7145F}|Shopee\\Shopee.csproj|solutionrelative:shopee\\views\\productadmin\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{55D7C7B6-FB26-4FC2-8C42-9EC482F7145F}|Shopee\\Shopee.csproj|c:\\users\\thinh nguyen\\documents\\zalo received files\\thinhdtr\\shopee\\shopee\\views\\productadmin\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{55D7C7B6-FB26-4FC2-8C42-9EC482F7145F}|Shopee\\Shopee.csproj|solutionrelative:shopee\\views\\productadmin\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{55D7C7B6-FB26-4FC2-8C42-9EC482F7145F}|Shopee\\Shopee.csproj|c:\\users\\thinh nguyen\\documents\\zalo received files\\thinhdtr\\shopee\\shopee\\views\\productadmin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{55D7C7B6-FB26-4FC2-8C42-9EC482F7145F}|Shopee\\Shopee.csproj|solutionrelative:shopee\\views\\productadmin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{55D7C7B6-FB26-4FC2-8C42-9EC482F7145F}|Shopee\\Shopee.csproj|c:\\users\\thinh nguyen\\documents\\zalo received files\\thinhdtr\\shopee\\shopee\\data\\taikhoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{55D7C7B6-FB26-4FC2-8C42-9EC482F7145F}|Shopee\\Shopee.csproj|solutionrelative:shopee\\data\\taikhoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{55D7C7B6-FB26-4FC2-8C42-9EC482F7145F}|Shopee\\Shopee.csproj|c:\\users\\thinh nguyen\\documents\\zalo received files\\thinhdtr\\shopee\\shopee\\data\\trangthai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{55D7C7B6-FB26-4FC2-8C42-9EC482F7145F}|Shopee\\Shopee.csproj|solutionrelative:shopee\\data\\trangthai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{55D7C7B6-FB26-4FC2-8C42-9EC482F7145F}|Shopee\\Shopee.csproj|c:\\users\\thinh nguyen\\documents\\zalo received files\\thinhdtr\\shopee\\shopee\\data\\yeuthich.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{55D7C7B6-FB26-4FC2-8C42-9EC482F7145F}|Shopee\\Shopee.csproj|solutionrelative:shopee\\data\\yeuthich.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{55D7C7B6-FB26-4FC2-8C42-9EC482F7145F}|Shopee\\Shopee.csproj|c:\\users\\thinh nguyen\\documents\\zalo received files\\thinhdtr\\shopee\\shopee\\data\\gopy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{55D7C7B6-FB26-4FC2-8C42-9EC482F7145F}|Shopee\\Shopee.csproj|solutionrelative:shopee\\data\\gopy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{55D7C7B6-FB26-4FC2-8C42-9EC482F7145F}|Shopee\\Shopee.csproj|c:\\users\\thinh nguyen\\documents\\zalo received files\\thinhdtr\\shopee\\shopee\\data\\loai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{55D7C7B6-FB26-4FC2-8C42-9EC482F7145F}|Shopee\\Shopee.csproj|solutionrelative:shopee\\data\\loai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{55D7C7B6-FB26-4FC2-8C42-9EC482F7145F}|Shopee\\Shopee.csproj|c:\\users\\thinh nguyen\\documents\\zalo received files\\thinhdtr\\shopee\\shopee\\data\\phancong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{55D7C7B6-FB26-4FC2-8C42-9EC482F7145F}|Shopee\\Shopee.csproj|solutionrelative:shopee\\data\\phancong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{55D7C7B6-FB26-4FC2-8C42-9EC482F7145F}|Shopee\\Shopee.csproj|c:\\users\\thinh nguyen\\documents\\zalo received files\\thinhdtr\\shopee\\shopee\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{55D7C7B6-FB26-4FC2-8C42-9EC482F7145F}|Shopee\\Shopee.csproj|solutionrelative:shopee\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{55D7C7B6-FB26-4FC2-8C42-9EC482F7145F}|Shopee\\Shopee.csproj|c:\\users\\thinh nguyen\\documents\\zalo received files\\thinhdtr\\shopee\\shopee\\models\\loginvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{55D7C7B6-FB26-4FC2-8C42-9EC482F7145F}|Shopee\\Shopee.csproj|solutionrelative:shopee\\models\\loginvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{55D7C7B6-FB26-4FC2-8C42-9EC482F7145F}|Shopee\\Shopee.csproj|c:\\users\\thinh nguyen\\documents\\zalo received files\\thinhdtr\\shopee\\shopee\\views\\customer\\statistics.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{55D7C7B6-FB26-4FC2-8C42-9EC482F7145F}|Shopee\\Shopee.csproj|solutionrelative:shopee\\views\\customer\\statistics.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{55D7C7B6-FB26-4FC2-8C42-9EC482F7145F}|Shopee\\Shopee.csproj|c:\\users\\thinh nguyen\\documents\\zalo received files\\thinhdtr\\shopee\\shopee\\views\\customer\\purchaseorder.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{55D7C7B6-FB26-4FC2-8C42-9EC482F7145F}|Shopee\\Shopee.csproj|solutionrelative:shopee\\views\\customer\\purchaseorder.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{55D7C7B6-FB26-4FC2-8C42-9EC482F7145F}|Shopee\\Shopee.csproj|c:\\users\\thinh nguyen\\documents\\zalo received files\\thinhdtr\\shopee\\shopee\\views\\customer\\forbidden.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{55D7C7B6-FB26-4FC2-8C42-9EC482F7145F}|Shopee\\Shopee.csproj|solutionrelative:shopee\\views\\customer\\forbidden.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{55D7C7B6-FB26-4FC2-8C42-9EC482F7145F}|Shopee\\Shopee.csproj|c:\\users\\thinh nguyen\\documents\\zalo received files\\thinhdtr\\shopee\\shopee\\views\\customer\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{55D7C7B6-FB26-4FC2-8C42-9EC482F7145F}|Shopee\\Shopee.csproj|solutionrelative:shopee\\views\\customer\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{55D7C7B6-FB26-4FC2-8C42-9EC482F7145F}|Shopee\\Shopee.csproj|c:\\users\\thinh nguyen\\documents\\zalo received files\\thinhdtr\\shopee\\shopee\\data\\khachhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{55D7C7B6-FB26-4FC2-8C42-9EC482F7145F}|Shopee\\Shopee.csproj|solutionrelative:shopee\\data\\khachhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 13,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:354128415:0:{83107a3e-496a-485e-b455-16ddb978e55e}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CartController.cs",
+              "DocumentMoniker": "C:\\Users\\Thinh Nguyen\\Documents\\Zalo Received Files\\Thinhdtr\\Shopee\\Shopee\\Controllers\\CartController.cs",
+              "RelativeDocumentMoniker": "Shopee\\Controllers\\CartController.cs",
+              "ToolTip": "C:\\Users\\Thinh Nguyen\\Documents\\Zalo Received Files\\Thinhdtr\\Shopee\\Shopee\\Controllers\\CartController.cs",
+              "RelativeToolTip": "Shopee\\Controllers\\CartController.cs",
+              "ViewState": "AgIAAKwAAAAAAAAAAAAqwMYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-24T12:15:07.218Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\Thinh Nguyen\\Documents\\Zalo Received Files\\Thinhdtr\\Shopee\\Shopee\\Views\\Product\\Details.cshtml",
+              "RelativeDocumentMoniker": "Shopee\\Views\\Product\\Details.cshtml",
+              "ToolTip": "C:\\Users\\Thinh Nguyen\\Documents\\Zalo Received Files\\Thinhdtr\\Shopee\\Shopee\\Views\\Product\\Details.cshtml",
+              "RelativeToolTip": "Shopee\\Views\\Product\\Details.cshtml",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAqwBIAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-23T17:08:15.918Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Thinh Nguyen\\Documents\\Zalo Received Files\\Thinhdtr\\Shopee\\Shopee\\appsettings.json",
+              "RelativeDocumentMoniker": "Shopee\\appsettings.json",
+              "ToolTip": "C:\\Users\\Thinh Nguyen\\Documents\\Zalo Received Files\\Thinhdtr\\Shopee\\Shopee\\appsettings.json",
+              "RelativeToolTip": "Shopee\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-11-22T09:26:51.494Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Thinh Nguyen\\Documents\\Zalo Received Files\\Thinhdtr\\Shopee\\Shopee\\Program.cs",
+              "RelativeDocumentMoniker": "Shopee\\Program.cs",
+              "ToolTip": "C:\\Users\\Thinh Nguyen\\Documents\\Zalo Received Files\\Thinhdtr\\Shopee\\Shopee\\Program.cs",
+              "RelativeToolTip": "Shopee\\Program.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAACcAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-22T09:29:57.914Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ShopporContext.cs",
+              "DocumentMoniker": "C:\\Users\\Thinh Nguyen\\Documents\\Zalo Received Files\\Thinhdtr\\Shopee\\Shopee\\Data\\ShopporContext.cs",
+              "RelativeDocumentMoniker": "Shopee\\Data\\ShopporContext.cs",
+              "ToolTip": "C:\\Users\\Thinh Nguyen\\Documents\\Zalo Received Files\\Thinhdtr\\Shopee\\Shopee\\Data\\ShopporContext.cs",
+              "RelativeToolTip": "Shopee\\Data\\ShopporContext.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAA/wEUBAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-22T09:34:09.787Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ProductAdminController.cs",
+              "DocumentMoniker": "C:\\Users\\Thinh Nguyen\\Documents\\Zalo Received Files\\Thinhdtr\\Shopee\\Shopee\\Controllers\\ProductAdminController.cs",
+              "RelativeDocumentMoniker": "Shopee\\Controllers\\ProductAdminController.cs",
+              "ToolTip": "C:\\Users\\Thinh Nguyen\\Documents\\Zalo Received Files\\Thinhdtr\\Shopee\\Shopee\\Controllers\\ProductAdminController.cs",
+              "RelativeToolTip": "Shopee\\Controllers\\ProductAdminController.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAA6wB8AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-23T18:22:32.2Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "CartItemVM.cs",
+              "DocumentMoniker": "C:\\Users\\Thinh Nguyen\\Documents\\Zalo Received Files\\Thinhdtr\\Shopee\\Shopee\\Models\\CartItemVM.cs",
+              "RelativeDocumentMoniker": "Shopee\\Models\\CartItemVM.cs",
+              "ToolTip": "C:\\Users\\Thinh Nguyen\\Documents\\Zalo Received Files\\Thinhdtr\\Shopee\\Shopee\\Models\\CartItemVM.cs",
+              "RelativeToolTip": "Shopee\\Models\\CartItemVM.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-24T12:02:48.277Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Thinh Nguyen\\Documents\\Zalo Received Files\\Thinhdtr\\Shopee\\Shopee\\Views\\Cart\\Index.cshtml",
+              "RelativeDocumentMoniker": "Shopee\\Views\\Cart\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Thinh Nguyen\\Documents\\Zalo Received Files\\Thinhdtr\\Shopee\\Shopee\\Views\\Cart\\Index.cshtml",
+              "RelativeToolTip": "Shopee\\Views\\Cart\\Index.cshtml",
+              "ViewState": "AgIAAEAAAAAAAAAAAAAqwF0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-24T12:17:39.566Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Thinh Nguyen\\Documents\\Zalo Received Files\\Thinhdtr\\Shopee\\Shopee\\Views\\Product\\Index.cshtml",
+              "RelativeDocumentMoniker": "Shopee\\Views\\Product\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Thinh Nguyen\\Documents\\Zalo Received Files\\Thinhdtr\\Shopee\\Shopee\\Views\\Product\\Index.cshtml",
+              "RelativeToolTip": "Shopee\\Views\\Product\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-23T17:04:33.864Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "CustomerController.cs",
+              "DocumentMoniker": "C:\\Users\\Thinh Nguyen\\Documents\\Zalo Received Files\\Thinhdtr\\Shopee\\Shopee\\Controllers\\CustomerController.cs",
+              "RelativeDocumentMoniker": "Shopee\\Controllers\\CustomerController.cs",
+              "ToolTip": "C:\\Users\\Thinh Nguyen\\Documents\\Zalo Received Files\\Thinhdtr\\Shopee\\Shopee\\Controllers\\CustomerController.cs",
+              "RelativeToolTip": "Shopee\\Controllers\\CustomerController.cs",
+              "ViewState": "AgIAAD4AAAAAAAAAAAAcwKAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-22T10:10:32.479Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\Thinh Nguyen\\Documents\\Zalo Received Files\\Thinhdtr\\Shopee\\Shopee\\Views\\ProductAdmin\\Create.cshtml",
+              "RelativeDocumentMoniker": "Shopee\\Views\\ProductAdmin\\Create.cshtml",
+              "ToolTip": "C:\\Users\\Thinh Nguyen\\Documents\\Zalo Received Files\\Thinhdtr\\Shopee\\Shopee\\Views\\ProductAdmin\\Create.cshtml",
+              "RelativeToolTip": "Shopee\\Views\\ProductAdmin\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-23T18:23:31.171Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "RegisterVM.cs",
+              "DocumentMoniker": "C:\\Users\\Thinh Nguyen\\Documents\\Zalo Received Files\\Thinhdtr\\Shopee\\Shopee\\Models\\RegisterVM.cs",
+              "RelativeDocumentMoniker": "Shopee\\Models\\RegisterVM.cs",
+              "ToolTip": "C:\\Users\\Thinh Nguyen\\Documents\\Zalo Received Files\\Thinhdtr\\Shopee\\Shopee\\Models\\RegisterVM.cs",
+              "RelativeToolTip": "Shopee\\Models\\RegisterVM.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAgwCEAAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-23T14:50:56.482Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "PhanQuyen.cs",
+              "DocumentMoniker": "C:\\Users\\Thinh Nguyen\\Documents\\Zalo Received Files\\Thinhdtr\\Shopee\\Shopee\\Data\\PhanQuyen.cs",
+              "RelativeDocumentMoniker": "Shopee\\Data\\PhanQuyen.cs",
+              "ToolTip": "C:\\Users\\Thinh Nguyen\\Documents\\Zalo Received Files\\Thinhdtr\\Shopee\\Shopee\\Data\\PhanQuyen.cs",
+              "RelativeToolTip": "Shopee\\Data\\PhanQuyen.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-23T18:04:13.958Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Register.cshtml",
+              "DocumentMoniker": "C:\\Users\\Thinh Nguyen\\Documents\\Zalo Received Files\\Thinhdtr\\Shopee\\Shopee\\Views\\Customer\\Register.cshtml",
+              "RelativeDocumentMoniker": "Shopee\\Views\\Customer\\Register.cshtml",
+              "ToolTip": "C:\\Users\\Thinh Nguyen\\Documents\\Zalo Received Files\\Thinhdtr\\Shopee\\Shopee\\Views\\Customer\\Register.cshtml",
+              "RelativeToolTip": "Shopee\\Views\\Customer\\Register.cshtml",
+              "ViewState": "AgIAAEAAAAAAAAAAAAAqwGkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-23T15:14:18.639Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "C:\\Users\\Thinh Nguyen\\Documents\\Zalo Received Files\\Thinhdtr\\Shopee\\Shopee\\Views\\ProductAdmin\\Delete.cshtml",
+              "RelativeDocumentMoniker": "Shopee\\Views\\ProductAdmin\\Delete.cshtml",
+              "ToolTip": "C:\\Users\\Thinh Nguyen\\Documents\\Zalo Received Files\\Thinhdtr\\Shopee\\Shopee\\Views\\ProductAdmin\\Delete.cshtml",
+              "RelativeToolTip": "Shopee\\Views\\ProductAdmin\\Delete.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-23T18:24:25.486Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\Thinh Nguyen\\Documents\\Zalo Received Files\\Thinhdtr\\Shopee\\Shopee\\Views\\ProductAdmin\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Shopee\\Views\\ProductAdmin\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\Thinh Nguyen\\Documents\\Zalo Received Files\\Thinhdtr\\Shopee\\Shopee\\Views\\ProductAdmin\\Edit.cshtml",
+              "RelativeToolTip": "Shopee\\Views\\ProductAdmin\\Edit.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-23T18:23:59.773Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Thinh Nguyen\\Documents\\Zalo Received Files\\Thinhdtr\\Shopee\\Shopee\\Views\\ProductAdmin\\Index.cshtml",
+              "RelativeDocumentMoniker": "Shopee\\Views\\ProductAdmin\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Thinh Nguyen\\Documents\\Zalo Received Files\\Thinhdtr\\Shopee\\Shopee\\Views\\ProductAdmin\\Index.cshtml",
+              "RelativeToolTip": "Shopee\\Views\\ProductAdmin\\Index.cshtml",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAqwCIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-23T18:22:58.536Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "TrangThai.cs",
+              "DocumentMoniker": "C:\\Users\\Thinh Nguyen\\Documents\\Zalo Received Files\\Thinhdtr\\Shopee\\Shopee\\Data\\TrangThai.cs",
+              "RelativeDocumentMoniker": "Shopee\\Data\\TrangThai.cs",
+              "ToolTip": "C:\\Users\\Thinh Nguyen\\Documents\\Zalo Received Files\\Thinhdtr\\Shopee\\Shopee\\Data\\TrangThai.cs",
+              "RelativeToolTip": "Shopee\\Data\\TrangThai.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-23T18:04:29.657Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Yeuthich.cs",
+              "DocumentMoniker": "C:\\Users\\Thinh Nguyen\\Documents\\Zalo Received Files\\Thinhdtr\\Shopee\\Shopee\\Data\\Yeuthich.cs",
+              "RelativeDocumentMoniker": "Shopee\\Data\\Yeuthich.cs",
+              "ToolTip": "C:\\Users\\Thinh Nguyen\\Documents\\Zalo Received Files\\Thinhdtr\\Shopee\\Shopee\\Data\\Yeuthich.cs",
+              "RelativeToolTip": "Shopee\\Data\\Yeuthich.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-23T18:04:28.824Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Gopy.cs",
+              "DocumentMoniker": "C:\\Users\\Thinh Nguyen\\Documents\\Zalo Received Files\\Thinhdtr\\Shopee\\Shopee\\Data\\Gopy.cs",
+              "RelativeDocumentMoniker": "Shopee\\Data\\Gopy.cs",
+              "ToolTip": "C:\\Users\\Thinh Nguyen\\Documents\\Zalo Received Files\\Thinhdtr\\Shopee\\Shopee\\Data\\Gopy.cs",
+              "RelativeToolTip": "Shopee\\Data\\Gopy.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-23T18:04:26.176Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Loai.cs",
+              "DocumentMoniker": "C:\\Users\\Thinh Nguyen\\Documents\\Zalo Received Files\\Thinhdtr\\Shopee\\Shopee\\Data\\Loai.cs",
+              "RelativeDocumentMoniker": "Shopee\\Data\\Loai.cs",
+              "ToolTip": "C:\\Users\\Thinh Nguyen\\Documents\\Zalo Received Files\\Thinhdtr\\Shopee\\Shopee\\Data\\Loai.cs",
+              "RelativeToolTip": "Shopee\\Data\\Loai.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-23T18:04:21.03Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "PhanCong.cs",
+              "DocumentMoniker": "C:\\Users\\Thinh Nguyen\\Documents\\Zalo Received Files\\Thinhdtr\\Shopee\\Shopee\\Data\\PhanCong.cs",
+              "RelativeDocumentMoniker": "Shopee\\Data\\PhanCong.cs",
+              "ToolTip": "C:\\Users\\Thinh Nguyen\\Documents\\Zalo Received Files\\Thinhdtr\\Shopee\\Shopee\\Data\\PhanCong.cs",
+              "RelativeToolTip": "Shopee\\Data\\PhanCong.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-23T18:04:19.588Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Taikhoan.cs",
+              "DocumentMoniker": "C:\\Users\\Thinh Nguyen\\Documents\\Zalo Received Files\\Thinhdtr\\Shopee\\Shopee\\Data\\Taikhoan.cs",
+              "RelativeDocumentMoniker": "Shopee\\Data\\Taikhoan.cs",
+              "ToolTip": "C:\\Users\\Thinh Nguyen\\Documents\\Zalo Received Files\\Thinhdtr\\Shopee\\Shopee\\Data\\Taikhoan.cs",
+              "RelativeToolTip": "Shopee\\Data\\Taikhoan.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-23T18:04:10.11Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "ProductController.cs",
+              "DocumentMoniker": "C:\\Users\\Thinh Nguyen\\Documents\\Zalo Received Files\\Thinhdtr\\Shopee\\Shopee\\Controllers\\ProductController.cs",
+              "RelativeDocumentMoniker": "Shopee\\Controllers\\ProductController.cs",
+              "ToolTip": "C:\\Users\\Thinh Nguyen\\Documents\\Zalo Received Files\\Thinhdtr\\Shopee\\Shopee\\Controllers\\ProductController.cs",
+              "RelativeToolTip": "Shopee\\Controllers\\ProductController.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAqwC4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-23T17:03:04.305Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "PurchaseOrder.cshtml",
+              "DocumentMoniker": "C:\\Users\\Thinh Nguyen\\Documents\\Zalo Received Files\\Thinhdtr\\Shopee\\Shopee\\Views\\Customer\\PurchaseOrder.cshtml",
+              "RelativeDocumentMoniker": "Shopee\\Views\\Customer\\PurchaseOrder.cshtml",
+              "ToolTip": "C:\\Users\\Thinh Nguyen\\Documents\\Zalo Received Files\\Thinhdtr\\Shopee\\Shopee\\Views\\Customer\\PurchaseOrder.cshtml",
+              "RelativeToolTip": "Shopee\\Views\\Customer\\PurchaseOrder.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-22T10:16:30.196Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "Statistics.cshtml",
+              "DocumentMoniker": "C:\\Users\\Thinh Nguyen\\Documents\\Zalo Received Files\\Thinhdtr\\Shopee\\Shopee\\Views\\Customer\\Statistics.cshtml",
+              "RelativeDocumentMoniker": "Shopee\\Views\\Customer\\Statistics.cshtml",
+              "ToolTip": "C:\\Users\\Thinh Nguyen\\Documents\\Zalo Received Files\\Thinhdtr\\Shopee\\Shopee\\Views\\Customer\\Statistics.cshtml",
+              "RelativeToolTip": "Shopee\\Views\\Customer\\Statistics.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-22T10:16:54.255Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "LoginVM.cs",
+              "DocumentMoniker": "C:\\Users\\Thinh Nguyen\\Documents\\Zalo Received Files\\Thinhdtr\\Shopee\\Shopee\\Models\\LoginVM.cs",
+              "RelativeDocumentMoniker": "Shopee\\Models\\LoginVM.cs",
+              "ToolTip": "C:\\Users\\Thinh Nguyen\\Documents\\Zalo Received Files\\Thinhdtr\\Shopee\\Shopee\\Models\\LoginVM.cs",
+              "RelativeToolTip": "Shopee\\Models\\LoginVM.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-22T10:13:47.22Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "Forbidden.cshtml",
+              "DocumentMoniker": "C:\\Users\\Thinh Nguyen\\Documents\\Zalo Received Files\\Thinhdtr\\Shopee\\Shopee\\Views\\Customer\\Forbidden.cshtml",
+              "RelativeDocumentMoniker": "Shopee\\Views\\Customer\\Forbidden.cshtml",
+              "ToolTip": "C:\\Users\\Thinh Nguyen\\Documents\\Zalo Received Files\\Thinhdtr\\Shopee\\Shopee\\Views\\Customer\\Forbidden.cshtml",
+              "RelativeToolTip": "Shopee\\Views\\Customer\\Forbidden.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-22T10:16:04.444Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\Thinh Nguyen\\Documents\\Zalo Received Files\\Thinhdtr\\Shopee\\Shopee\\Views\\Customer\\Login.cshtml",
+              "RelativeDocumentMoniker": "Shopee\\Views\\Customer\\Login.cshtml",
+              "ToolTip": "C:\\Users\\Thinh Nguyen\\Documents\\Zalo Received Files\\Thinhdtr\\Shopee\\Shopee\\Views\\Customer\\Login.cshtml",
+              "RelativeToolTip": "Shopee\\Views\\Customer\\Login.cshtml",
+              "ViewState": "AgIAABYAAAAAAAAAAAAqwDMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-22T10:14:52.307Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "Khachhang.cs",
+              "DocumentMoniker": "C:\\Users\\Thinh Nguyen\\Documents\\Zalo Received Files\\Thinhdtr\\Shopee\\Shopee\\Data\\Khachhang.cs",
+              "RelativeDocumentMoniker": "Shopee\\Data\\Khachhang.cs",
+              "ToolTip": "C:\\Users\\Thinh Nguyen\\Documents\\Zalo Received Files\\Thinhdtr\\Shopee\\Shopee\\Data\\Khachhang.cs",
+              "RelativeToolTip": "Shopee\\Data\\Khachhang.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAA5wCUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-22T10:01:23.711Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

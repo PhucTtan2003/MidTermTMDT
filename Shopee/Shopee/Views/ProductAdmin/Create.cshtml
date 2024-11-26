@@ -1,0 +1,116 @@
+﻿@model Shopee.Data.Hanghoa
+
+@{
+    ViewData["Title"] = "Thêm sản phẩm";
+}
+
+<h1 class="mb-4">Thêm sản phẩm</h1>
+
+<!-- Hiển thị thông báo thành công hoặc lỗi -->
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["ErrorMessage"]
+    </div>
+}
+
+<form asp-action="Create" method="post">
+    <!-- Tên sản phẩm -->
+    <div class="form-group">
+        <label asp-for="TenHh"></label>
+        <input asp-for="TenHh" class="form-control" />
+        <span asp-validation-for="TenHh" class="text-danger"></span>
+    </div>
+
+    <!-- Tên alias -->
+    <div class="form-group">
+        <label asp-for="TenAlias"></label>
+        <input asp-for="TenAlias" class="form-control" />
+        <span asp-validation-for="TenAlias" class="text-danger"></span>
+    </div>
+
+    <!-- Mã loại -->
+    <div class="form-group">
+        <label asp-for="MaLoai">Loại sản phẩm</label>
+        <input asp-for="MaLoai" class="form-control" />
+        <span asp-validation-for="MaLoai" class="text-danger"></span>
+    </div>
+
+    <!-- Mô tả đơn vị -->
+    <div class="form-group">
+        <label asp-for="MoTaDonVi"></label>
+        <input asp-for="MoTaDonVi" class="form-control" />
+        <span asp-validation-for="MoTaDonVi" class="text-danger"></span>
+    </div>
+
+    <!-- Đơn giá -->
+    <div class="form-group">
+        <label asp-for="DonGia"></label>
+        <input asp-for="DonGia" type="number" class="form-control" />
+        <span asp-validation-for="DonGia" class="text-danger"></span>
+    </div>
+
+    <!-- Hình ảnh -->
+    <div class="form-group">
+        <label asp-for="Hinh"></label>
+        <input asp-for="Hinh" class="form-control" />
+        <span asp-validation-for="Hinh" class="text-danger"></span>
+    </div>
+
+    <!-- Ngày sản xuất -->
+    <div class="form-group">
+        <label asp-for="NgaySx"></label>
+        <input asp-for="NgaySx" type="date" class="form-control" />
+        <span asp-validation-for="NgaySx" class="text-danger"></span>
+    </div>
+
+    <!-- Giảm giá -->
+    <div class="form-group">
+        <label asp-for="GiamGia"></label>
+        <input asp-for="GiamGia" type="number" class="form-control" />
+        <span asp-validation-for="GiamGia" class="text-danger"></span>
+    </div>
+
+    <!-- Số lần xem -->
+    <div class="form-group">
+        <label asp-for="SoLanXem"></label>
+        <input asp-for="SoLanXem" type="number" class="form-control" />
+        <span asp-validation-for="SoLanXem" class="text-danger"></span>
+    </div>
+
+    <!-- Mô tả -->
+    <div class="form-group">
+        <label asp-for="MoTa"></label>
+        <textarea asp-for="MoTa" class="form-control"></textarea>
+        <span asp-validation-for="MoTa" class="text-danger"></span>
+    </div>
+
+    <!-- Mã nhà cung cấp -->
+    <div class="form-group">
+        <label asp-for="MaNcc"></label>
+        <input asp-for="MaNcc" class="form-control" />
+        <span asp-validation-for="MaNcc" class="text-danger"></span>
+    </div>
+
+    <!-- Đánh giá -->
+    <div class="form-group">
+        <label asp-for="Danhgia"></label>
+        <input asp-for="Danhgia" class="form-control" />
+        <span asp-validation-for="Danhgia" class="text-danger"></span>
+    </div>
+
+    <!-- Nút Thêm sản phẩm -->
+    <button type="submit" class="btn btn-primary mt-3">Thêm sản phẩm</button>
+</form>
+
+@section Scripts {
+    <!-- Hiển thị script cho validation -->
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

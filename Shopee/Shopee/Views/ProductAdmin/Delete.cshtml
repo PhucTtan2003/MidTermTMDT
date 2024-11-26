@@ -1,0 +1,15 @@
+﻿@model Shopee.Data.Hanghoa
+
+@{
+    ViewData["Title"] = "Xóa sản phẩm";
+}
+
+<h1>Xóa sản phẩm</h1>
+
+<p>Bạn có chắc chắn muốn xóa sản phẩm "<strong>@Model.TenHh</strong>"?</p>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="MaHh" />
+    <button type="submit" class="btn btn-danger">Xóa</button>
+    <a asp-action="Index" class="btn btn-secondary">Hủy</a>
+</form>

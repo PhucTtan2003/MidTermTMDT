@@ -1,0 +1,33 @@
+﻿@model Shopee.Data.Hanghoa
+
+@{
+    ViewData["Title"] = "Chi tiết sản phẩm";
+}
+
+<div class="container">
+    <h1 class="text-center">@Model.TenHh</h1>
+    <hr />
+
+    <div class="row">
+        <!-- Hình ảnh -->
+        <div class="col-md-6">
+            <img src="@Model.Hinh" class="img-fluid" alt="@Model.TenHh" />
+        </div>
+
+        <!-- Thông tin sản phẩm -->
+        <div class="col-md-6">
+            <h3>Thông tin sản phẩm</h3>
+            <p>Giá: @string.Format("{0:0,0} VND", Model.DonGia ?? 0)</p>
+            <p>Giảm giá: @Model.GiamGia%</p>
+            <p>Số lượt xem: @Model.SoLanXem</p>
+            <p>Ngày sản xuất: @Model.NgaySx.ToShortDateString()</p>
+            <p>Mô tả: @Model.MoTa</p>
+
+            <!-- Nút Thêm vào giỏ hàng -->
+            <a asp-controller="Cart" asp-action="AddToCart" asp-route-maHh="@Model.MaHh" class="btn btn-primary mt-3">Thêm vào giỏ hàng</a>
+
+            <!-- Nút quay lại -->
+            <a href="/Product" class="btn btn-secondary mt-3">Quay lại</a>
+        </div>
+    </div>
+</div>

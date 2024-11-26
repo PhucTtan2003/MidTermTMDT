@@ -1,0 +1,51 @@
+﻿@model Shopee.Models.LoginVM
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h1>Login</h1>
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <!-- Login Form -->
+        <form asp-action="Login" method="post">
+            <!-- Display validation summary for model errors -->
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <!-- Display server-side error message from ViewBag -->
+            @if (!string.IsNullOrEmpty(ViewBag.ThongBao as string))
+            {
+                <div class="alert alert-danger">@ViewBag.ThongBao</div>
+            }
+
+            <!-- Hidden input for ReturnUrl -->
+            <input type="hidden" name="ReturnUrl" value="@ViewBag.ReturnUrl" />
+
+            <!-- UserName Field -->
+            <div class="form-group">
+                <label asp-for="UserName" class="control-label"></label>
+                <input asp-for="UserName" class="form-control" placeholder="Enter your username" />
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+
+            <!-- Password Field -->
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" placeholder="Enter your password" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="form-group">
+                <input type="submit" value="Login" class="btn btn-primary" />
+            </div>
+
+            <!-- Optional Links (e.g., Register, Forgot Password) -->
+            <p>
+                <a asp-controller="Customer" asp-action="Register">Don't have an account? Register here</a>
+            </p>
+        </form>
+    </div>
+</div>

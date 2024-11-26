@@ -1,0 +1,105 @@
+﻿@model Shopee.Models.RegisterVM
+
+<div class="container py-5">
+    <h1 class="mb-4">Đăng ký</h1>
+
+    <!-- Hiển thị thông báo thành công nếu có -->
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["SuccessMessage"]
+        </div>
+    }
+
+    <!-- Form đăng ký -->
+    <form asp-action="Register" method="post">
+        <!-- Mã khách hàng -->
+        <div class="form-group">
+            <label asp-for="Makh"></label>
+            <input asp-for="Makh" class="form-control" />
+            <span asp-validation-for="Makh" class="text-danger"></span>
+        </div>
+
+        <!-- Mật khẩu -->
+        <div class="form-group">
+            <label asp-for="Matkhau"></label>
+            <input asp-for="Matkhau" type="password" class="form-control" />
+            <span asp-validation-for="Matkhau" class="text-danger"></span>
+        </div>
+
+        <!-- Họ tên -->
+        <div class="form-group">
+            <label asp-for="Hoten"></label>
+            <input asp-for="Hoten" class="form-control" />
+            <span asp-validation-for="Hoten" class="text-danger"></span>
+        </div>
+
+        <!-- Giới tính -->
+        <div class="form-group">
+            <label asp-for="Gioitinh">Giới tính</label>
+            <select asp-for="Gioitinh" class="form-control">
+                <option value="true">Nam</option>
+                <option value="false">Nữ</option>
+            </select>
+        </div>
+
+        <!-- Ngày sinh -->
+        <div class="form-group">
+            <label asp-for="Ngaysinh"></label>
+            <input asp-for="Ngaysinh" type="date" class="form-control" />
+        </div>
+
+        <!-- Địa chỉ -->
+        <div class="form-group">
+            <label asp-for="Diachi"></label>
+            <input asp-for="Diachi" class="form-control" />
+        </div>
+
+        <!-- Điện thoại -->
+        <div class="form-group">
+            <label asp-for="Dienthoai"></label>
+            <input asp-for="Dienthoai" class="form-control" />
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+            <label asp-for="Email"></label>
+            <input asp-for="Email" type="email" class="form-control" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+
+        <!-- Vai trò -->
+        <div class="form-group">
+            <label asp-for="Vaitro">Vai trò</label>
+            <select asp-for="Vaitro" class="form-control" id="role-select">
+                <option value="0">User</option>
+                <option value="1">Admin</option>
+            </select>
+        </div>
+
+        <!-- Mã kích hoạt -->
+        <div class="form-group" id="activation-code-group" style="display: none;">
+            <label asp-for="ActivationCode">Mã kích hoạt</label>
+            <input asp-for="ActivationCode" class="form-control" />
+            <span asp-validation-for="ActivationCode" class="text-danger"></span>
+        </div>
+
+        <!-- Nút Đăng ký -->
+        <button type="submit" class="btn btn-primary mt-3">Đăng ký</button>
+    </form>
+</div>
+
+@section Scripts {
+    <script>
+        // Hiển thị/Ẩn trường Mã kích hoạt dựa trên lựa chọn Vai trò
+        document.getElementById("role-select").addEventListener("change", function () {
+            var role = this.value;
+            var activationCodeGroup = document.getElementById("activation-code-group");
+            if (role === "1") { // Vai trò Admin
+                activationCodeGroup.style.display = "block";
+            } else {
+                activationCodeGroup.style.display = "none";
+            }
+        });
+    </script>
+}
