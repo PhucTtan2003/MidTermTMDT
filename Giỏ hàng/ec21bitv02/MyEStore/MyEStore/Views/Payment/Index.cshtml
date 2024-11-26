@@ -1,84 +1,131 @@
 ﻿@model IEnumerable<MyEStore.Models.CartItem>
 
 @{
-	ViewData["Title"] = "Thông tin đặt hàng";
+    ViewData["Title"] = "Thông tin đặt hàng";
 }
 
 <h1>Thông tin đặt hàng</h1>
 
 <div class="cart-table table-responsive">
-	<table class="table table-bordered">
-		<thead>
-			<tr>
-				<th class="pro-thumbnail">Thumbnail</th>
-				<th class="pro-title">Product</th>
-				<th class="pro-price">Price</th>
-				<th class="pro-quantity">Quantity</th>
-				<th class="pro-subtotal">Total</th>
-			</tr>
-		</thead>
-		<tbody>
-			@foreach (var item in Model)
-			{
-				<tr>
-					<td>
-						<img src="~/Hinh/HangHoa/@item.Hinh" alt="@item.TenHh" height="100" />
-					</td>
-					<td>@item.TenHh</td>
-					<td>@item.DonGia</td>
-					<td>@item.SoLuong</td>
-					<td>@item.ThanhTien</td>
-				</tr>
-			}
-		</tbody>
-	</table>
-	<h3>Tổng tiền: <span class="text-danger">@Model.Sum(p => p.ThanhTien).ToString("#,##0.00") $</span></h3>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th class="pro-thumbnail">Thumbnail</th>
+                <th class="pro-title">Product</th>
+                <th class="pro-price">Price</th>
+                <th class="pro-quantity">Quantity</th>
+                <th class="pro-subtotal">Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <img src="~/Hinh/HangHoa/@item.Hinh" alt="@item.TenHh" height="100" />
+                    </td>
+                    <td>@item.TenHh</td>
+                    <td>@item.DonGia.ToString("#,##0.00") $</td>
+                    <td>
+                        <div class="input-group">
+                            <button class="btn btn-outline-secondary decrease-qty" data-id="@item.MaHh">-</button>
+                            <input class="form-control text-center update-qty" value="@item.SoLuong" data-id="@item.MaHh" min="1" />
+                            <button class="btn btn-outline-secondary increase-qty" data-id="@item.MaHh">+</button>
+                        </div>
+                    </td>
+                    <td class="item-total" data-id="@item.MaHh">@item.ThanhTien.ToString("#,##0.00") $</td>
+                </tr>
+            }
+            <tr>
+                <td colspan="4" class="text-right"><strong>Tổng tiền:</strong></td>
+                <td class="text-danger">
+                    <strong>@Model.Sum(p => p.ThanhTien).ToString("#,##0.00") $</strong>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>
 
-<button id="vnpay-button" class="btn border-secondary text-uppercase text-primary w-100 mt-2"
-		onclick="location.href='https://localhost:7238/Payment/CreatePaymentUrl'">
-	Thanh toán VNPay
-</button>
+<div class="payment-methods">
+    <button id="vnpay-button" class="btn btn-primary w-100 mt-2"
+            onclick="location.href='https://localhost:7238/Payment/CreatePaymentUrl'">
+        Thanh toán VNPay
+    </button>
 
-
-<div id="paypal-button-container" class="form-item mt-3" style="max-width:1000px;"></div>
-<div>
-	<div id="paypal-button-container" style="max-width:300px;"></div>
-
-	@section Scripts {
-
-		<script src="https://www.paypal.com/sdk/js?client-id=@ViewBag.PaypalClientId"></script>
-		<script>
-			paypal.Buttons({
-				style: {
-					disableMaxWidth: true
-				},
-				createOrder: (data, actions) => {
-					return fetch("/Payment/PaypalOrder", {
-						method: "post",
-					}).then((response) => {
-						if (!response.ok) {
-							return response.json().then(error => { throw error; });
-						}
-
-						return response.json();
-					}).then((order) => order.id)
-						.catch(error => alert(error.message));
-				},
-				onApprove: (data, actions) => {
-					return fetch(`/Payment/PaypalCapture?orderId=${data.orderID}`, {
-						method: "post",
-					}).then((response) => {
-						if (!response.ok) {
-							return response.json().then(error => { throw error; });
-						}
-
-						//Đổi địa chỉ tới action thông báo thành công
-						window.location.href = "/Payment/Success";
-					}).catch(error => alert(error.message));
-				}
-			}).render('#paypal-button-container');
-		</script>
-	}
-
+    <div id="paypal-button-container" class="form-item mt-3"></div>
 </div>
+
+<script src="https://www.paypal.com/sdk/js?client-id=@ViewBag.PaypalClientId"></script>
+<script>
+    $(document).ready(function () {
+        $(".increase-qty").click(function () {
+            const id = $(this).data("id");
+            const input = $(`input[data-id='${id}']`);
+            const newQty = parseInt(input.val()) + 1;
+            updateCart(id, newQty);
+        });
+
+        $(".decrease-qty").click(function () {
+            const id = $(this).data("id");
+            const input = $(`input[data-id='${id}']`);
+            const newQty = Math.max(1, parseInt(input.val()) - 1);
+            updateCart(id, newQty);
+        });
+
+        $(".update-qty").change(function () {
+            const id = $(this).data("id");
+            const newQty = Math.max(1, parseInt($(this).val()));
+            updateCart(id, newQty);
+        });
+
+        function updateCart(id, qty) {
+            $.ajax({
+                url: '/Cart/UpdateCart',
+                type: 'POST',
+                data: { id: id, qty: qty },
+                success: function (response) {
+                    // Cập nhật giao diện giỏ hàng
+                    $(`input[data-id='${id}']`).val(qty);
+                    const itemTotal = $(`.item-total[data-id='${id}']`);
+                    const newTotal = response.newTotal;
+                    itemTotal.text(newTotal);
+
+
+                    $("#cart-total").text(response.cartTotal);
+                },
+                error: function () {
+                    alert("Có lỗi xảy ra khi cập nhật giỏ hàng.");
+                }
+            });
+        }
+    });
+
+        // Tích hợp PayPal
+        paypal.Buttons({
+            style: {
+                disableMaxWidth: true
+            },
+            createOrder: (data, actions) => {
+                return fetch("/Payment/PaypalOrder", {
+                    method: "post",
+                }).then((response) => {
+                    if (!response.ok) {
+                        return response.json().then(error => { throw error; });
+                    }
+                    return response.json();
+                }).then((order) => order.id)
+                    .catch(error => alert(error.message));
+            },
+            onApprove: (data, actions) => {
+                return fetch(`/Payment/PaypalCapture?orderId=${data.orderID}`, {
+                    method: "post",
+                }).then((response) => {
+                    if (!response.ok) {
+                        return response.json().then(error => { throw error; });
+                    }
+                    window.location.href = "/Payment/Success"; // Đổi địa chỉ tới trang thông báo thành công
+                }).catch(error => alert(error.message));
+            }
+        }).render('#paypal-button-container');
+    });
+</script>

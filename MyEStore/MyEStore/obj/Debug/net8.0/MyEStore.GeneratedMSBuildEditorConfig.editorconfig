@@ -17,12 +17,17 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = MyEStore
 build_property.RootNamespace = MyEStore
+<<<<<<< HEAD
 build_property.ProjectDir = C:\Users\Thinh Nguyen\Downloads\MidTermTMDT\MyEStore\MyEStore\
+=======
+build_property.ProjectDir = D:\Git_Hub\MidTermTMDT\MyEStore\MyEStore\
+>>>>>>> f046eeb334eefa056f0f18d86f9681d0c3b849db
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+<<<<<<< HEAD
 build_property.MSBuildProjectDirectory = C:\Users\Thinh Nguyen\Downloads\MidTermTMDT\MyEStore\MyEStore
 build_property._RazorSourceGeneratorDebug = 
 
@@ -91,5 +96,55 @@ build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Thinh Nguyen/Downloads/MidTermTMDT/MyEStore/MyEStore/Views/Shared/_Layout.cshtml]
+=======
+build_property.MSBuildProjectDirectory = D:\Git_Hub\MidTermTMDT\MyEStore\MyEStore
+build_property._RazorSourceGeneratorDebug = 
+
+[D:/Git_Hub/MidTermTMDT/MyEStore/MyEStore/Views/Cart/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Git_Hub/MidTermTMDT/MyEStore/MyEStore/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Git_Hub/MidTermTMDT/MyEStore/MyEStore/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Git_Hub/MidTermTMDT/MyEStore/MyEStore/Views/Products/Detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcRGV0YWlsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Git_Hub/MidTermTMDT/MyEStore/MyEStore/Views/Products/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Git_Hub/MidTermTMDT/MyEStore/MyEStore/Views/Products/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Git_Hub/MidTermTMDT/MyEStore/MyEStore/Views/Shared/Components/Loai/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcTG9haVxEZWZhdWx0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Git_Hub/MidTermTMDT/MyEStore/MyEStore/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Git_Hub/MidTermTMDT/MyEStore/MyEStore/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Git_Hub/MidTermTMDT/MyEStore/MyEStore/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Git_Hub/MidTermTMDT/MyEStore/MyEStore/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Git_Hub/MidTermTMDT/MyEStore/MyEStore/Views/Shared/_Layout.cshtml]
+>>>>>>> f046eeb334eefa056f0f18d86f9681d0c3b849db
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-7osb4iislu

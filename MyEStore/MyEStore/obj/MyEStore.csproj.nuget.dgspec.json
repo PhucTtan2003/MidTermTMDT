@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "C:\\Users\\Thinh Nguyen\\Downloads\\MidTermTMDT\\MyEStore\\MyEStore\\MyEStore.csproj": {}
   },
   "projects": {
@@ -12,9 +13,22 @@
         "projectPath": "C:\\Users\\Thinh Nguyen\\Downloads\\MidTermTMDT\\MyEStore\\MyEStore\\MyEStore.csproj",
         "packagesPath": "C:\\Users\\Thinh Nguyen\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\Thinh Nguyen\\Downloads\\MidTermTMDT\\MyEStore\\MyEStore\\obj\\",
+=======
+    "D:\\Git_Hub\\MidTermTMDT\\MyEStore\\MyEStore\\MyEStore.csproj": {}
+  },
+  "projects": {
+    "D:\\Git_Hub\\MidTermTMDT\\MyEStore\\MyEStore\\MyEStore.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Git_Hub\\MidTermTMDT\\MyEStore\\MyEStore\\MyEStore.csproj",
+        "projectName": "MyEStore",
+        "projectPath": "D:\\Git_Hub\\MidTermTMDT\\MyEStore\\MyEStore\\MyEStore.csproj",
+        "packagesPath": "C:\\Users\\TAM\\.nuget\\packages\\",
+        "outputPath": "D:\\Git_Hub\\MidTermTMDT\\MyEStore\\MyEStore\\obj\\",
+>>>>>>> f046eeb334eefa056f0f18d86f9681d0c3b849db
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Thinh Nguyen\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\TAM\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,7 +36,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -54,6 +67,10 @@
               "target": "Package",
               "version": "[8.0.10, )"
             },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.10, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.0.10, )"
@@ -70,7 +87,7 @@
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-              "version": "[8.0.7, )"
+              "version": "[8.0.6, )"
             }
           },
           "imports": [
@@ -92,7 +109,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

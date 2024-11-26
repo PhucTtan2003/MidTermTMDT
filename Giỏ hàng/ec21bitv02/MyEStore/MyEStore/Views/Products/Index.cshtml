@@ -2,6 +2,8 @@
 
 @{
 	ViewData["Title"] = "Index";
+    // Lấy giỏ hàng từ Session và tính tổng số lượng sản phẩm
+    int cartItemCount = Context.Session.Get<List<MyEStore.Models.CartItem>>("MY_CART")?.Count ?? 0;
 }
 <style>
 	.hh-box {
@@ -44,7 +46,53 @@
     .search-box {
         margin-top: 10px;
     }
+
+    .cart-link {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 20px;
+    }
+
+        .cart-link a {
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            background-color: #007bff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            position: relative;
+        }
+
+            .cart-link a:hover {
+                background-color: #0056b3;
+            }
+
+    .cart-badge {
+        background-color: red;
+        color: white;
+        border-radius: 50%;
+        font-size: 12px;
+        width: 20px;
+        height: 20px;
+        text-align: center;
+        line-height: 20px;
+        position: absolute;
+        top: -5px;
+        right: -5px;
+    }
 </style>
+<!-- Nút giỏ hàng -->
+<div class="cart-link">
+    <a asp-controller="Cart" asp-action="Index">
+        <i class="fas fa-shopping-cart"></i> Giỏ hàng
+        @if (cartItemCount > 0)
+        {
+            <!-- Hiển thị số lượng sản phẩm trong giỏ hàng -->
+            <span class="cart-badge">@cartItemCount</span>
+        }
+    </a>
+</div>
 <div class="container">
     <div class="row">
         <!-- Cột chứa danh sách hàng hóa -->
@@ -54,13 +102,11 @@
                 {
                     <div class="col-md-4">
                         <div class="hh-box">
+                            <h3 class="hh-box-name">@hh.TenHh</h3>
                             <a asp-action="Detail" asp-route-id="@hh.MaHh">
                                 <img src="~/Hinh/HangHoa/@hh.Hinh" alt="@hh.TenHh" class="hh-box-img" />
                             </a>
-                            <a class="btn btn-primary hh-box-mua" asp-controller="Cart" asp-action="AddToCart" asp-route-id="@hh.MaHh">MUA</a>
-                            <div class="hh-box-gia">@hh.DonGia $</div>
-                            <!-- Nút Chỉnh Sửa -->
-                            <a class="btn btn-secondary hh-box-edit" asp-action="Edit" asp-route-id="@hh.MaHh">Sửa</a>
+                            <a asp-action="AddToCartAndPurchase" asp-controller="Cart" asp-route-id="@hh.MaHh" class="btn btn-primary hh-box-mua">MUA</a>
                         </div>
                     </div>
                 }
