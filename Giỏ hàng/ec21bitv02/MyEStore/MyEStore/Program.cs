@@ -15,7 +15,7 @@ builder.Services.AddDbContext<MyeStoreContext>(options => {
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession(options =>
 {
-	options.IdleTimeout = TimeSpan.FromSeconds(30);
+	options.IdleTimeout = TimeSpan.FromSeconds(180);
 });
 
 
@@ -27,7 +27,8 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
 		options.SlidingExpiration = true;
 		options.LoginPath = "/Customer/Login";
 		options.AccessDeniedPath = "/Forbidden/";
-	});
+        options.ReturnUrlParameter = "ReturnUrl";
+    });
 
 
 //dang ky payment singleton
