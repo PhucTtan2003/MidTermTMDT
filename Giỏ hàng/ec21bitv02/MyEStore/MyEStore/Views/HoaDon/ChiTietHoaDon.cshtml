@@ -1,0 +1,27 @@
+﻿@model IEnumerable<MyEStore.Models.ChiTietHdVM>
+
+<h2>Chi Tiết Hóa Đơn @Model.FirstOrDefault()?.MaHH</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Mã Hàng Hóa</th>
+            <th>Đơn Giá</th>
+            <th>Số Lượng</th>
+            <th>Giảm Giá</th>
+            <th>Thành Tiền</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.MaHH</td>
+                <td>@item.DonGia</td>
+                <td>@item.SoLuong</td>
+                <td>@item.GiamGia</td>
+                <td>@item.ThanhTien</td>
+            </tr>
+        }
+    </tbody>
+</table>

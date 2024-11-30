@@ -17,40 +17,46 @@ namespace MyEStore.Controllers
         }
 
         [HttpGet]
-        public IActionResult Login()
+        public IActionResult Login(string? returnUrl)
         {
+            ViewBag.ReturnUrl = returnUrl; // Lưu URL vào ViewBag để truyền sang View
             return View();
         }
 
         [HttpPost]
         public async Task<IActionResult> Login(LoginVM model, string? ReturnUrl)
         {
-            ViewBag.ReturnUrl = ReturnUrl;
+            // Kiểm tra thông tin đăng nhập
             var kh = _ctx.KhachHangs.SingleOrDefault(p => p.MaKh == model.UserName && p.MatKhau == model.Password);
             if (kh == null)
             {
                 ViewBag.ThongBao = "Sai thông tin đăng nhập";
+                ViewBag.ReturnUrl = ReturnUrl; // Truyền lại ReturnUrl nếu có lỗi
                 return View();
             }
 
+            // Tạo Claims
             var claims = new List<Claim>
             {
                 new Claim(ClaimTypes.Name, kh.HoTen),
                 new Claim(ClaimTypes.Email, kh.Email),
                 new Claim("UserId", kh.MaKh),
-                //làm động lấy role trong DB
-                new Claim(ClaimTypes.Role, "Administrator")
+                new Claim(ClaimTypes.Role, "Customer") // Lấy vai trò từ DB
             };
             var claimsIdentity = new ClaimsIdentity(
-            claims, CookieAuthenticationDefaults.AuthenticationScheme);
-
+                claims, CookieAuthenticationDefaults.AuthenticationScheme);
             var claimPrincipal = new ClaimsPrincipal(claimsIdentity);
 
             await HttpContext.SignInAsync(claimPrincipal);
-            if (!string.IsNullOrEmpty(ReturnUrl)){
+
+            // Chuyển hướng theo ReturnUrl nếu có
+            if (!string.IsNullOrEmpty(ReturnUrl) && Url.IsLocalUrl(ReturnUrl))
+            {
                 return Redirect(ReturnUrl);
             }
-            return RedirectToAction("Profile", "Customer");
+
+            // Nếu không có ReturnUrl, chuyển hướng về trang mặc định
+            return RedirectToAction("Index", "Home");
         }
 
         [Authorize]
